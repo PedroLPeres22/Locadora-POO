@@ -1,0 +1,65 @@
+package dados;
+
+//Classe que define características gerais dos produtos sendo locados
+
+public class Produto {
+    private String nome, tipo, codigo, classInd;
+    private boolean estaAlugado;
+    private long alugueis, estoque;
+    // Nome = Título do produto
+    // Tipo = Tipo do produto (Game ou Vídeo)
+    // Codigo = ID do produto no BD 
+    // classInd = Classificação Indicativa
+    // estaAlugado = Indica se o item está alugado atualmente
+    // Alugueis = Indica o número de vezes que o produto foi alugado
+    // Estoque = Indica o número de cópias no estoque da locadora
+    
+    
+    public Produto(String nome, String tipo, String codigo, String classInd,
+            boolean estaAlugado, long alugueis, long estoque){
+        this.nome = nome;
+        this.tipo = tipo;
+        this.codigo = codigo;
+        this.estaAlugado = false;
+        this.alugueis = 0;
+        this.estoque = estoque;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    public String getTipo(){
+        return tipo;
+    }
+    public String getCodigo(){
+        return codigo;
+    }
+    public boolean estaAlugado(){
+        return estaAlugado;
+    }
+    public long getAlugueis(){
+        return alugueis;
+    }
+    public long getEstoque(){
+        return estoque;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+    public void setCodigo(String codigo){
+        this.codigo = codigo;
+    }
+    public void setAlugadoStatus(boolean estaAlugado){
+        this.estaAlugado = estaAlugado;
+    }
+    public void setAlugueis(long alugueis){
+        this.alugueis = alugueis;
+    }
+    public void setEstoque(long estoque){
+        this.estoque = estoque;
+    }
+}
