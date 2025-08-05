@@ -9,7 +9,7 @@ public class Video extends Produto{
     //estudio = Estudio responsável pela produção do filme
     //distribuidora = Distribuidora responsável por fornecer o filme
     //formato = Formato em que o vídeo está disponível (VHS, CD, DVD, Blu-Ray, LaserDisc)
-    //tipoMidia = Tipo de vídeo (Filmãe, Série, Coletânea)
+    //tipoMidia = Tipo de vídeo (Filme, Série, Coletânea)
     //duracao = Duração (em minutos) do vídeo
     
     public Video(String nome, String codigo, String classInd, String estudio, 
