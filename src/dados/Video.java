@@ -9,13 +9,13 @@ public class Video extends Produto{
     //estudio = Estudio responsável pela produção do filme
     //distribuidora = Distribuidora responsável por fornecer o filme
     //formato = Formato em que o vídeo está disponível (VHS, CD, DVD, Blu-Ray, LaserDisc)
-    //tipoMidia = Tipo de vídeo (Filme, Série, Coletânea)
+    //tipoMidia = Tipo de vídeo (Filmãe, Série, Coletânea)
     //duracao = Duração (em minutos) do vídeo
     
     public Video(String nome, String codigo, String classInd, String estudio, 
             String distribuidora, String formato, String tipoMidia, int duracao,
             boolean estaAlugado, long alugueis, long estoque) {
-        super(nome, "Filme", codigo, classInd, estaAlugado, alugueis, estoque);
+        super(nome, "Vídeo", codigo, classInd, estaAlugado, alugueis, estoque);
         this.estudio = estudio;
         this.distribuidora = distribuidora;
         this.formato = formato;

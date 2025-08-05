@@ -5,15 +5,15 @@ package dados;
 public class Produto {
     private String nome, tipo, codigo, classInd;
     private boolean estaAlugado;
-    private long alugueis, estoque;
-    // Nome = Título do produto
-    // Tipo = Tipo do produto (Game ou Vídeo)
-    // Codigo = ID do produto no BD 
+    private long alugueis, estoque, preco;
+    // nome = Título do produto
+    // tipo = Tipo do produto (Game ou Vídeo)
+    // codigo = ID do produto no BD 
     // classInd = Classificação Indicativa
     // estaAlugado = Indica se o item está alugado atualmente
-    // Alugueis = Indica o número de vezes que o produto foi alugado
-    // Estoque = Indica o número de cópias no estoque da locadora
-    
+    // alugueis = Indica o número de vezes que o produto foi alugado
+    // estoque = Indica o número de cópias no estoque da locadora
+    // preco = Preço do aluguel do produto
     
     public Produto(String nome, String tipo, String codigo, String classInd,
             boolean estaAlugado, long alugueis, long estoque){
@@ -61,5 +61,9 @@ public class Produto {
     }
     public void setEstoque(long estoque){
         this.estoque = estoque;
+    }
+    
+    public void updateAlugueis(){
+        alugueis++;
     }
 }
