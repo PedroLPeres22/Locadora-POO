@@ -2,11 +2,11 @@ package dados;
 
 import java.util.ArrayList;
 
-//Classe responsável por descrever os ãdados de uma venda/locação
+//Classe responsável por descrever os dados de uma venda/locação
 
 public class Venda {
     private Cliente cliente;
-    private ArrayList<Produto> locados;
+    private ArrayList<Produto> locados = new ArrayList<>();
     private long valorTotal;
     private String dataLocar, dataDevol;
     //cliente = Cliente que locou o produto
@@ -14,6 +14,15 @@ public class Venda {
     //valorTotal = Valor total pago para locar os produtos
     //dataLocar = data em que os produtos foram locados
     //dataDevol = data em que os produtos devem ser devolvidos
+    
+    public Venda(Cliente cliente, ArrayList<Produto> locados, long valorTotal,
+            String dataLocar, String dataDevol){
+        this.cliente = cliente;
+        this.locados = locados;
+        this.valorTotal = valorTotal;
+        this.dataLocar = dataLocar;
+        this.dataDevol = dataDevol;
+    }
     
     public Cliente getCliente(){
         return cliente;
