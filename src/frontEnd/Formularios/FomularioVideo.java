@@ -26,26 +26,39 @@ public class FomularioVideo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        lTitulo = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        formularioContainer = new javax.swing.JPanel();
         lNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
-        lDesenvolvedora = new javax.swing.JLabel();
-        tfDesenvolvedora = new javax.swing.JTextField();
-        lPublicadora = new javax.swing.JLabel();
-        tfPublicadora = new javax.swing.JTextField();
-        lPlataforma = new javax.swing.JLabel();
-        tfPlataforma = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lEstudio = new javax.swing.JLabel();
+        tfEstudio = new javax.swing.JTextField();
+        lDistribuidora = new javax.swing.JLabel();
+        tfDistribuidora = new javax.swing.JTextField();
+        lFormato = new javax.swing.JLabel();
+        tfFormato = new javax.swing.JTextField();
+        lTipoMidia = new javax.swing.JLabel();
+        tfTipoMidia = new javax.swing.JTextField();
+        lDuraco = new javax.swing.JLabel();
+        tfDuracao = new javax.swing.JTextField();
+        lPreco = new javax.swing.JLabel();
+        tfPreco = new javax.swing.JTextField();
+        lClassificacao = new javax.swing.JLabel();
+        jrbLivre = new javax.swing.JRadioButton();
+        jrb10 = new javax.swing.JRadioButton();
+        jrb12 = new javax.swing.JRadioButton();
+        jrb14 = new javax.swing.JRadioButton();
+        jrb16 = new javax.swing.JRadioButton();
+        jrb18 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(500, 650));
         setPreferredSize(new java.awt.Dimension(500, 650));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
-        jLabel1.setText("Formulario Cadastro de video");
+        lTitulo.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
+        lTitulo.setText("Formulario Cadastro de video");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        formularioContainer.setBackground(new java.awt.Color(204, 204, 204));
 
         lNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lNome.setText("Nome");
@@ -53,124 +66,226 @@ public class FomularioVideo extends javax.swing.JPanel {
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfNome.setToolTipText("Digite o nome do jogo");
 
-        lDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lDesenvolvedora.setText("Desenvolvedora");
+        lEstudio.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lEstudio.setText("Estudio");
 
-        tfDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfDesenvolvedora.setToolTipText("Digite a desenvolvedora do jogo");
-        tfDesenvolvedora.addActionListener(new java.awt.event.ActionListener() {
+        tfEstudio.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfEstudio.setToolTipText("Digite a desenvolvedora do jogo");
+        tfEstudio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDesenvolvedoraActionPerformed(evt);
+                tfEstudioActionPerformed(evt);
             }
         });
 
-        lPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lPublicadora.setText("Publicadora");
+        lDistribuidora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lDistribuidora.setText("Distribuidora");
 
-        tfPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfPublicadora.setToolTipText("Digite o nome da publicadora");
+        tfDistribuidora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfDistribuidora.setToolTipText("Digite o nome da publicadora");
 
-        lPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        lPlataforma.setText("Plataforma");
+        lFormato.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lFormato.setText("Formato");
 
-        tfPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfPlataforma.setToolTipText("Digite o nome da plataforma do jogo");
+        tfFormato.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfFormato.setToolTipText("Digite o nome da plataforma do jogo");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel2.setText("Preço");
+        lTipoMidia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lTipoMidia.setText("Tipo de midia");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField1.setToolTipText("preço");
+        tfTipoMidia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfTipoMidia.setToolTipText("preço");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        lDuraco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lDuraco.setText("Duração");
+
+        tfDuracao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfDuracao.setToolTipText("preço");
+
+        lPreco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lPreco.setText("Preço");
+
+        tfPreco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfPreco.setToolTipText("preço");
+
+        lClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        lClassificacao.setText("Classificação indicativa");
+
+        jrbLivre.setLabel("livre");
+        jrbLivre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbLivreActionPerformed(evt);
+            }
+        });
+
+        jrb10.setLabel("10");
+
+        jrb12.setLabel("12");
+
+        jrb14.setLabel("14");
+
+        jrb16.setLabel("16");
+        jrb16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb16ActionPerformed(evt);
+            }
+        });
+
+        jrb18.setLabel("18");
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jButton1.setText("Enviar");
+
+        javax.swing.GroupLayout formularioContainerLayout = new javax.swing.GroupLayout(formularioContainer);
+        formularioContainer.setLayout(formularioContainerLayout);
+        formularioContainerLayout.setHorizontalGroup(
+            formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formularioContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfNome)
-                    .addComponent(tfDesenvolvedora)
-                    .addComponent(tfPublicadora)
-                    .addComponent(tfPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lNome)
-                            .addComponent(lDesenvolvedora)
-                            .addComponent(lPublicadora)
-                            .addComponent(lPlataforma)
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField1))
+                    .addComponent(tfEstudio)
+                    .addComponent(tfDistribuidora)
+                    .addComponent(tfFormato)
+                    .addComponent(tfTipoMidia)
+                    .addComponent(tfDuracao)
+                    .addComponent(tfPreco)
+                    .addGroup(formularioContainerLayout.createSequentialGroup()
+                        .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lNome)
+                                .addComponent(lEstudio)
+                                .addComponent(lDistribuidora)
+                                .addComponent(lFormato)
+                                .addComponent(lTipoMidia)
+                                .addComponent(lDuraco)
+                                .addComponent(lPreco)
+                                .addComponent(lClassificacao)
+                                .addGroup(formularioContainerLayout.createSequentialGroup()
+                                    .addComponent(jrbLivre)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jrb10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jrb12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jrb14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jrb16)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jrb18))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+        formularioContainerLayout.setVerticalGroup(
+            formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formularioContainerLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addComponent(lNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lDesenvolvedora)
+                .addComponent(lEstudio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfDesenvolvedora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lPublicadora)
+                .addComponent(lDistribuidora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPublicadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfDistribuidora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPlataforma)
+                .addComponent(lFormato)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfFormato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(lTipoMidia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addComponent(tfTipoMidia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lDuraco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lPreco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lClassificacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jrbLivre)
+                    .addComponent(jrb12)
+                    .addComponent(jrb16)
+                    .addComponent(jrb10)
+                    .addComponent(jrb14)
+                    .addComponent(jrb18))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jScrollPane2.setViewportView(formularioContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lTitulo)
+                .addContainerGap(154, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
+                .addComponent(lTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfDesenvolvedoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDesenvolvedoraActionPerformed
+    private void jrb16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb16ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfDesenvolvedoraActionPerformed
+    }//GEN-LAST:event_jrb16ActionPerformed
+
+    private void jrbLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbLivreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbLivreActionPerformed
+
+    private void tfEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEstudioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEstudioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lDesenvolvedora;
+    private javax.swing.JPanel formularioContainer;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JRadioButton jrb10;
+    private javax.swing.JRadioButton jrb12;
+    private javax.swing.JRadioButton jrb14;
+    private javax.swing.JRadioButton jrb16;
+    private javax.swing.JRadioButton jrb18;
+    private javax.swing.JRadioButton jrbLivre;
+    private javax.swing.JLabel lClassificacao;
+    private javax.swing.JLabel lDistribuidora;
+    private javax.swing.JLabel lDuraco;
+    private javax.swing.JLabel lEstudio;
+    private javax.swing.JLabel lFormato;
     private javax.swing.JLabel lNome;
-    private javax.swing.JLabel lPlataforma;
-    private javax.swing.JLabel lPublicadora;
-    private javax.swing.JTextField tfDesenvolvedora;
+    private javax.swing.JLabel lPreco;
+    private javax.swing.JLabel lTipoMidia;
+    private javax.swing.JLabel lTitulo;
+    private javax.swing.JTextField tfDistribuidora;
+    private javax.swing.JTextField tfDuracao;
+    private javax.swing.JTextField tfEstudio;
+    private javax.swing.JTextField tfFormato;
     private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfPlataforma;
-    private javax.swing.JTextField tfPublicadora;
+    private javax.swing.JTextField tfPreco;
+    private javax.swing.JTextField tfTipoMidia;
     // End of variables declaration//GEN-END:variables
 }
