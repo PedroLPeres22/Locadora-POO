@@ -25,6 +25,7 @@ public class FormularioCliente extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         lTitulo = new javax.swing.JLabel();
         formularioContainer = new javax.swing.JPanel();
@@ -45,9 +46,18 @@ public class FormularioCliente extends javax.swing.JPanel {
         formularioContainer.setBackground(new java.awt.Color(204, 204, 204));
         formularioContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         formularioContainer.setPreferredSize(new java.awt.Dimension(150, 400));
+        formularioContainer.setLayout(new java.awt.GridBagLayout());
 
         lNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lNome.setText("Nome");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(49, 11, 0, 0);
+        formularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfNome.setText("Digite o nome");
@@ -56,15 +66,44 @@ public class FormularioCliente extends javax.swing.JPanel {
                 tfNomeActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 352;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        formularioContainer.add(tfNome, gridBagConstraints);
 
         lTelefone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lTelefone.setText("Telefone");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 11, 0, 0);
+        formularioContainer.add(lTelefone, gridBagConstraints);
 
         tfTelefone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfTelefone.setText("Digite o telefone");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 352;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 11);
+        formularioContainer.add(tfTelefone, gridBagConstraints);
 
         lEndereco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lEndereco.setText("Endereço");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 11, 0, 0);
+        formularioContainer.add(lEndereco, gridBagConstraints);
 
         tfEndereco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfEndereco.setText("Digite o endereço");
@@ -73,51 +112,23 @@ public class FormularioCliente extends javax.swing.JPanel {
                 tfEnderecoActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.ipadx = 352;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 11);
+        formularioContainer.add(tfEndereco, gridBagConstraints);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jButton1.setText("Enviar");
-
-        javax.swing.GroupLayout formularioContainerLayout = new javax.swing.GroupLayout(formularioContainer);
-        formularioContainer.setLayout(formularioContainerLayout);
-        formularioContainerLayout.setHorizontalGroup(
-            formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formularioContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNome)
-                    .addComponent(tfTelefone)
-                    .addComponent(tfEndereco)
-                    .addGroup(formularioContainerLayout.createSequentialGroup()
-                        .addGroup(formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lNome, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lTelefone)
-                            .addComponent(lEndereco))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(formularioContainerLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        formularioContainerLayout.setVerticalGroup(
-            formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formularioContainerLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lTelefone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lEndereco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 99, 11, 0);
+        formularioContainer.add(jButton1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -126,20 +137,17 @@ public class FormularioCliente extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(49, 50, Short.MAX_VALUE))
+            .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

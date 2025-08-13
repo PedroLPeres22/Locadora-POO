@@ -25,6 +25,7 @@ public class FormularioJogo extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         grupoBotoesClassificacao = new javax.swing.ButtonGroup();
         lTitulo = new javax.swing.JLabel();
@@ -56,15 +57,38 @@ public class FormularioJogo extends javax.swing.JPanel {
 
         fomularioContainer.setBackground(new java.awt.Color(204, 204, 204));
         fomularioContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        fomularioContainer.setLayout(new java.awt.GridBagLayout());
 
         lNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lNome.setText("Nome do jogo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(35, 11, 0, 0);
+        fomularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfNome.setToolTipText("Digite o nome do jogo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 45;
+        gridBagConstraints.ipadx = 402;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfNome, gridBagConstraints);
 
         lDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lDesenvolvedora.setText("Desenvolvedora");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(lDesenvolvedora, gridBagConstraints);
 
         tfDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfDesenvolvedora.setToolTipText("Digite a desenvolvedora do jogo");
@@ -73,21 +97,66 @@ public class FormularioJogo extends javax.swing.JPanel {
                 tfDesenvolvedoraActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 45;
+        gridBagConstraints.ipadx = 402;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfDesenvolvedora, gridBagConstraints);
 
         lPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lPublicadora.setText("Publicadora");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(lPublicadora, gridBagConstraints);
 
         tfPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfPublicadora.setToolTipText("Digite o nome da publicadora");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 45;
+        gridBagConstraints.ipadx = 402;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfPublicadora, gridBagConstraints);
 
         lPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lPlataforma.setText("Plataforma");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        fomularioContainer.add(lPlataforma, gridBagConstraints);
 
         tfPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfPlataforma.setToolTipText("Digite o nome da plataforma do jogo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 45;
+        gridBagConstraints.ipadx = 402;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfPlataforma, gridBagConstraints);
 
         lClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lClassificacao.setText("Classificação indicativa");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 21;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 11, 0, 0);
+        fomularioContainer.add(lClassificacao, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrbLivre);
         jrbLivre.setLabel("livre");
@@ -96,9 +165,23 @@ public class FormularioJogo extends javax.swing.JPanel {
                 jrbLivreActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(jrbLivre, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrb12);
         jrb12.setLabel("12");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 2, 0, 0);
+        fomularioContainer.add(jrb12, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrb16);
         jrb16.setLabel("16");
@@ -107,100 +190,71 @@ public class FormularioJogo extends javax.swing.JPanel {
                 jrb16ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 42;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        fomularioContainer.add(jrb16, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrb10);
         jrb10.setLabel("10");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        fomularioContainer.add(jrb10, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrb14);
         jrb14.setLabel("14");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 22;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        fomularioContainer.add(jrb14, gridBagConstraints);
 
         grupoBotoesClassificacao.add(jrb18);
         jrb18.setLabel("18");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 43;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
+        fomularioContainer.add(jrb18, gridBagConstraints);
 
         botaoEnviar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         botaoEnviar.setText("Enviar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 42;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 24, 93, 0);
+        fomularioContainer.add(botaoEnviar, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel1.setText("Preço");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        fomularioContainer.add(jLabel1, gridBagConstraints);
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jTextField1.setToolTipText("preço");
-
-        javax.swing.GroupLayout fomularioContainerLayout = new javax.swing.GroupLayout(fomularioContainer);
-        fomularioContainer.setLayout(fomularioContainerLayout);
-        fomularioContainerLayout.setHorizontalGroup(
-            fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNome)
-                    .addComponent(tfDesenvolvedora)
-                    .addComponent(tfPublicadora)
-                    .addComponent(tfPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(botaoEnviar)
-                                .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lNome)
-                                    .addComponent(lDesenvolvedora)
-                                    .addComponent(lPublicadora)
-                                    .addComponent(lPlataforma)
-                                    .addComponent(lClassificacao)
-                                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                                        .addComponent(jrbLivre)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrb10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jrb12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrb14)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrb16)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jrb18))))
-                            .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jTextField1))
-                .addContainerGap())
-        );
-        fomularioContainerLayout.setVerticalGroup(
-            fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lDesenvolvedora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfDesenvolvedora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lPublicadora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPublicadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lPlataforma)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(lClassificacao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrbLivre)
-                    .addComponent(jrb12)
-                    .addComponent(jrb16)
-                    .addComponent(jrb10)
-                    .addComponent(jrb14)
-                    .addComponent(jrb18))
-                .addGap(18, 18, 18)
-                .addComponent(botaoEnviar)
-                .addContainerGap())
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 45;
+        gridBagConstraints.ipadx = 402;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(jTextField1, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,10 +263,10 @@ public class FormularioJogo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(lTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(167, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fomularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -220,9 +274,9 @@ public class FormularioJogo extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(lTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fomularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
