@@ -1,7 +1,11 @@
 import frontEnd.FomularioProdutos;
+import frontEnd.App;
 
 public class Main {
     public static void main(String[] args) {
-        new FomularioProdutos();
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            App app = new App();
+            app.setVisible(true);
+        });
     }
 }
