@@ -4,6 +4,10 @@
  */
 package frontEnd.telas;
 
+import frontEnd.formularios.FormularioJogo;
+import frontEnd.formularios.FormularioVideo;
+import java.awt.CardLayout;
+
 /**
  *
  * @author gbert
@@ -13,8 +17,14 @@ public class CadastrarProdutos extends javax.swing.JPanel {
     /**
      * Creates new form CadastrarProdutos
      */
+    FormularioVideo formularioVideo;
+    FormularioJogo formularioJogo;
     public CadastrarProdutos() {
         initComponents();
+        formularioVideo = new FormularioVideo();
+        formularioJogo = new FormularioJogo();
+        jFormulario.add(formularioVideo, "Video");
+        jFormulario.add(formularioJogo, "Jogo");
     }
 
     /**
@@ -26,33 +36,68 @@ public class CadastrarProdutos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jBotoes = new javax.swing.JPanel();
+        botaoVideo = new javax.swing.JButton();
+        botaoJogo = new javax.swing.JButton();
+        jFormulario = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(700, 700));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel1.setText("cadastrar Produto");
+        jBotoes.setBackground(new java.awt.Color(204, 204, 204));
+        jBotoes.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jBotoes.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+
+        botaoVideo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        botaoVideo.setText("Video");
+        botaoVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVideoActionPerformed(evt);
+            }
+        });
+        jBotoes.add(botaoVideo);
+
+        botaoJogo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        botaoJogo.setText("Jogo");
+        botaoJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoJogoActionPerformed(evt);
+            }
+        });
+        jBotoes.add(botaoJogo);
+
+        jFormulario.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addContainerGap(579, Short.MAX_VALUE))
+            .addComponent(jBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addComponent(jBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 656, Short.MAX_VALUE)
+                .addComponent(jFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botaoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoJogoActionPerformed
+        CardLayout cl = (CardLayout) jFormulario.getLayout();
+        cl.show(jFormulario, "Jogo");
+    }//GEN-LAST:event_botaoJogoActionPerformed
+
+    private void botaoVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVideoActionPerformed
+        CardLayout cl = (CardLayout) jFormulario.getLayout();
+        cl.show(jFormulario, "Video");
+    }//GEN-LAST:event_botaoVideoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton botaoJogo;
+    private javax.swing.JButton botaoVideo;
+    private javax.swing.JPanel jBotoes;
+    private javax.swing.JPanel jFormulario;
     // End of variables declaration//GEN-END:variables
 }
