@@ -27,7 +27,6 @@ public class FormularioVideo extends javax.swing.JPanel {
     private void initComponents() {
 
         lTitulo = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
         formularioContainer = new javax.swing.JPanel();
         lNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
@@ -179,7 +178,7 @@ public class FormularioVideo extends javax.swing.JPanel {
         formularioContainerLayout.setVerticalGroup(
             formularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formularioContainerLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(10, 10, 10)
                 .addComponent(lNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,8 +221,6 @@ public class FormularioVideo extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane2.setViewportView(formularioContainer);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,9 +229,9 @@ public class FormularioVideo extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addComponent(lTitulo)
                 .addContainerGap(154, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -243,8 +240,8 @@ public class FormularioVideo extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(lTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,7 +261,6 @@ public class FormularioVideo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel formularioContainer;
     private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JRadioButton jrb10;
     private javax.swing.JRadioButton jrb12;
     private javax.swing.JRadioButton jrb14;

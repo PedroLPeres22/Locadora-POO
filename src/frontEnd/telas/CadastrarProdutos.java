@@ -39,6 +39,7 @@ public class CadastrarProdutos extends javax.swing.JPanel {
         jBotoes = new javax.swing.JPanel();
         botaoVideo = new javax.swing.JButton();
         botaoJogo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jFormulario = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(700, 700));
@@ -66,20 +67,21 @@ public class CadastrarProdutos extends javax.swing.JPanel {
         jBotoes.add(botaoJogo);
 
         jFormulario.setLayout(new java.awt.CardLayout());
+        jScrollPane1.setViewportView(jFormulario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-            .addComponent(jFormulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 656, Short.MAX_VALUE)
-                .addComponent(jFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -99,5 +101,6 @@ public class CadastrarProdutos extends javax.swing.JPanel {
     private javax.swing.JButton botaoVideo;
     private javax.swing.JPanel jBotoes;
     private javax.swing.JPanel jFormulario;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
