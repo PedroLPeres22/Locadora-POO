@@ -4,6 +4,8 @@
  */
 package frontEnd.formularios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gbert
@@ -60,7 +62,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         formularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfNome.setText("Digite o nome");
+        tfNome.setToolTipText("Digite o nome");
         tfNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNomeActionPerformed(evt);
@@ -85,7 +87,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         formularioContainer.add(lTelefone, gridBagConstraints);
 
         tfTelefone.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfTelefone.setText("Digite o telefone");
+        tfTelefone.setToolTipText("Digite o telefone");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -106,7 +108,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         formularioContainer.add(lEndereco, gridBagConstraints);
 
         tfEndereco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfEndereco.setText("Digite o endereço");
+        tfEndereco.setToolTipText("Digite o endereço");
         tfEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEnderecoActionPerformed(evt);
@@ -123,6 +125,11 @@ public class FormularioCliente extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jButton1.setText("Enviar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
@@ -158,6 +165,13 @@ public class FormularioCliente extends javax.swing.JPanel {
     private void tfEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEnderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEnderecoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nome = tfNome.getText();
+        String telefone = tfTelefone.getText();
+        String endereco = tfTelefone.getText();
+        JOptionPane.showMessageDialog(formularioContainer, "usuario " + nome + " criado");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

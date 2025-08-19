@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/App.java</file>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/Main.java</file>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/telas/CadastrarProdutos.java</file>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/formularios/FormularioVideo.java</file>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/formularios/FormularioJogo.java</file>
-            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/formularios/FormularioCliente.java</file>
+            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/dados/Venda.java</file>
+            <file>file:/C:/Users/gbert/Documents/GitHub/Locadora-POO/src/frontEnd/tabelas/TabelaVendas.java</file>
         </group>
     </open-files>
 </project-private>

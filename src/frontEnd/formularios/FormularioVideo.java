@@ -4,6 +4,8 @@
  */
 package frontEnd.formularios;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gbert
@@ -285,6 +287,11 @@ public class FormularioVideo extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jButton1.setText("Enviar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 44;
         gridBagConstraints.gridy = 16;
@@ -328,6 +335,11 @@ public class FormularioVideo extends javax.swing.JPanel {
     private void tfEstudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEstudioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEstudioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nome = tfNome.getText();
+        JOptionPane.showMessageDialog(formularioContainer, "Video " + nome + " Criado");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

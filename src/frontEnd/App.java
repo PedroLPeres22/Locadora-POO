@@ -18,6 +18,7 @@ public class App extends javax.swing.JFrame {
     // componentes de tela
     private FormularioCliente formularioCliente;
     private CadastrarProdutos cadastrarprodutos;
+    private ListaDeDados listaDados;
 
     /**
      * Creates new form App
@@ -28,12 +29,13 @@ public class App extends javax.swing.JFrame {
         // Cria e registra os cards usados na aplicação (fazer isso após initComponents)
         formularioCliente = new FormularioCliente();
         cadastrarprodutos = new CadastrarProdutos();
+        listaDados =  new ListaDeDados();
 
         // painel vazio inicial e outros cards
-        tela.add(new javax.swing.JPanel(), "vazio");
+        tela.add(listaDados, "Lista de dados");
         tela.add(formularioCliente, "Formulario de cliente");
         tela.add(cadastrarprodutos, "Cadastrar Produtos");
-        tela.add(new javax.swing.JPanel(), "Lista de dados");
+        //tela.add(new javax.swing.JPanel(), "Lista de dados");
 
         // mostra o card vazio inicialmente
         ((CardLayout) tela.getLayout()).show(tela, "vazio");

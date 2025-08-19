@@ -4,6 +4,9 @@
  */
 package frontEnd.formularios;
 
+import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author gbert
@@ -228,6 +231,11 @@ public class FormularioJogo extends javax.swing.JPanel {
 
         botaoEnviar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         botaoEnviar.setText("Enviar");
+        botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEnviarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 42;
         gridBagConstraints.gridy = 12;
@@ -291,6 +299,15 @@ public class FormularioJogo extends javax.swing.JPanel {
     private void jrb16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrb16ActionPerformed
+
+    private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
+        String nome = tfNome.getText();
+        String desenvolvedora = tfDesenvolvedora.getText();
+        String plataforma = tfPlataforma.getText();
+        String publicadora = tfPlataforma.getText();
+        ButtonModel classificacao = grupoBotoesClassificacao.getSelection();
+        JOptionPane.showMessageDialog(fomularioContainer, "Jogo " + nome + " Criado");
+    }//GEN-LAST:event_botaoEnviarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
