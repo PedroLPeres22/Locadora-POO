@@ -9,6 +9,9 @@ import frontEnd.tabelas.TabelaJogos;
 import frontEnd.tabelas.TabelaVendas;
 import frontEnd.tabelas.TabelaVideo;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+
+import dados.Game;
 
 /**
  *
@@ -23,10 +26,15 @@ public class ListaDeDados extends javax.swing.JPanel {
     TabelaJogos tabelaJogos;
     TabelaVideo tabelaVideo;
     TabelaVendas tabelaVendas;
+    ArrayList<Game> listaDeJogos;
     public ListaDeDados() {
         initComponents();
+        listaDeJogos = new ArrayList<Game>();
+        listaDeJogos.add(new Game("The Witcher 3", "001", "+18", "CD Projekt", "CD Projekt RED", "PC", false, 10, 5));
+        listaDeJogos.add(new Game("God of War", "002", "+16", "Sony", "Santa Monica Studio", "PS5", false, 20, 3));
         tabelaCliente = new TabelaCliente();
         tabelaJogos =  new TabelaJogos();
+        tabelaJogos.carregarJogos(listaDeJogos);
         tabelaVideo = new TabelaVideo();
         tabelaVendas  = new TabelaVendas();
         Container.add(tabelaVendas, "Vendas");

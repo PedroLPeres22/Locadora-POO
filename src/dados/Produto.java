@@ -44,6 +44,14 @@ public class Produto {
         return estoque;
     }
     
+    public long getPreco() {
+        return preco;
+    }
+
+    public String getClassInd() {
+        return classInd;
+    }
+    
     public void setNome(String nome){
         this.nome = nome;
     }

@@ -4,6 +4,14 @@
  */
 package frontEnd.tabelas;
 
+import dados.Game;
+import java.util.ArrayList;
+import java.util.List;
+import frontEnd.telas.Jogo;
+
+import javax.swing.SwingUtilities;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author gbert
@@ -13,10 +21,41 @@ public class TabelaJogos extends javax.swing.JPanel {
     /**
      * Creates new form TabelaJogos
      */
+    private List<Game> jogos = new ArrayList<>(); // armazena a lista carregada
+
     public TabelaJogos() {
         initComponents();
+        configurarTabela();
     }
 
+    private void configurarTabela() {
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {},
+        new String [] { "ID", "Nome", "Desenvolvedora", "Preço" }
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // impede edição por clique/duplo-clique
+        }
+    });
+    jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jTable1.getTableHeader().setReorderingAllowed(false); 
+}
+    
+    public void carregarJogos(List<Game> jogos) {
+        this.jogos = jogos; // guarda a lista para uso no clique
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // limpa tabela
+
+        for (Game g : jogos) {
+            model.addRow(new Object[]{
+                g.getCodigo(),
+                g.getNome(),
+                g.getDesenvolvedor(),
+                "R$ " + g.getPreco()
+            });
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +83,11 @@ public class TabelaJogos extends javax.swing.JPanel {
                 "id", "nome", "genero", "desenvolvedora", "preço"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,6 +113,26 @@ public class TabelaJogos extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // Abre o JFrame do jogo correspondente ao item clicado.
+        // use evt.getClickCount() == 2 para abrir no duplo clique (padrão atual)
+        // mude para == 1 se quiser abrir com clique simples.
+        if (evt.getClickCount() == 2) {
+            int viewRow = jTable1.getSelectedRow();
+            if (viewRow == -1) return;
+
+            int modelRow = jTable1.convertRowIndexToModel(viewRow);
+            if (modelRow < 0 || modelRow >= jogos.size()) return;
+
+            final Game g = jogos.get(modelRow);
+            SwingUtilities.invokeLater(() -> {
+                Jogo tela = new Jogo(g);
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
+            });
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
