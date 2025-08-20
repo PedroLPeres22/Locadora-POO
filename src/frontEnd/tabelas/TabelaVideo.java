@@ -4,6 +4,15 @@
  */
 package frontEnd.tabelas;
 
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import dados.Video;
+import frontEnd.telas.VideoTela;
+
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author gbert
@@ -13,9 +22,42 @@ public class TabelaVideo extends javax.swing.JPanel {
     /**
      * Creates new form TabelaVideo
      */
+
+    private List<Video> videos; // armazena a lista carregada
     public TabelaVideo() {
         initComponents();
+        configurarTabela();
     }
+
+private void configurarTabela() {
+    jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        new Object [][] {},
+        new String [] { "ID", "Nome", "estudio", "Preço" }
+    ) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // impede edição por clique/duplo-clique
+        }
+    });
+
+    jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    jTable1.getTableHeader().setReorderingAllowed(false); 
+}
+
+public void carregarVideo(List<Video> videos){
+    this.videos = videos; // guarda a lista para uso no clique
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0); // limpa tabela
+
+    for (Video v: videos) {
+        model.addRow(new Object[]{
+            v.getCodigo(),
+            v.getNome(),
+            v.getEstudio(),
+            "R$ " + v.getPreco()
+        });
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,6 +86,11 @@ public class TabelaVideo extends javax.swing.JPanel {
                 "id", "nome", "genero", "estudio", "preço"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -69,6 +116,23 @@ public class TabelaVideo extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() == 2) {
+            int viewRow = jTable1.getSelectedRow();
+            if (viewRow == -1) return;
+
+            int modelRow = jTable1.convertRowIndexToModel(viewRow);
+            if (modelRow < 0 || modelRow >= videos.size()) return;
+
+            final Video v = videos.get(modelRow);
+            SwingUtilities.invokeLater(() -> {
+                VideoTela tela = new VideoTela(v);
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
+            });
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

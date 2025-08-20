@@ -7,7 +7,7 @@ package frontEnd.tabelas;
 import dados.Game;
 import java.util.ArrayList;
 import java.util.List;
-import frontEnd.telas.Jogo;
+import frontEnd.telas.JogoTela;
 
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -127,7 +127,7 @@ public class TabelaJogos extends javax.swing.JPanel {
 
             final Game g = jogos.get(modelRow);
             SwingUtilities.invokeLater(() -> {
-                Jogo tela = new Jogo(g);
+                JogoTela tela = new JogoTela(g);
                 tela.setLocationRelativeTo(null);
                 tela.setVisible(true);
             });

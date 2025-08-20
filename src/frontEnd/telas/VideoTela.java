@@ -4,43 +4,34 @@
  */
 package frontEnd.telas;
 
-import javax.swing.JOptionPane;
-
-import dados.Game;
+import dados.Video;
 
 /**
  *
  * @author gbert
  */
-public class Jogo extends javax.swing.JFrame {
+public class VideoTela extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Jogo.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VideoTela.class.getName());
 
     /**
-     * Creates new form Jogo
+     * Creates new form Video
      */
-    public Jogo() {
+    public VideoTela() {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
-    //construtor que preenche os labels com os dados do Game
-    public Jogo(Game g) {
+    public VideoTela(Video video) {
         initComponents();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        if (g != null) {
-            nome.setText(g.getNome());
-            desenvolvedor.setText(g.getDesenvolvedor());
-            publicadora.setText(g.getPublicadora());
-            plataforma.setText(g.getPlataforma());
-            clasInd.setText(g.getClassInd() == null ? "-" : g.getClassInd());
-            estoque.setText(String.valueOf(g.getEstoque()));
-            alugado.setText(g.estaAlugado() ? "Sim" : "Não");
-            preco.setText("R$ " + g.getPreco());
-            botaoAlugar.setEnabled(!g.estaAlugado());
-        }
-        
+        nome.setText(video.getNome());
+        estudio.setText(video.getEstudio());
+        distribuidora.setText(video.getDistribuidora());
+        tipoMidia.setText(video.getTipoMidia());
+        duracao.setText(String.valueOf(video.getDuracao()));
+        clasInd.setText(video.getClassInd());
+        estoque.setText(String.valueOf(video.getEstoque()));
+        alugado.setText(video.estaAlugado() ? "Sim" : "Não");
+        preco.setText("R$ " + video.getPreco());
     }
 
     /**
@@ -56,12 +47,14 @@ public class Jogo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lNome = new javax.swing.JLabel();
         nome = new javax.swing.JLabel();
-        lDesenvolvedor = new javax.swing.JLabel();
-        desenvolvedor = new javax.swing.JLabel();
-        lPublicadora = new javax.swing.JLabel();
-        publicadora = new javax.swing.JLabel();
-        lPlataforma = new javax.swing.JLabel();
-        plataforma = new javax.swing.JLabel();
+        lEstudio = new javax.swing.JLabel();
+        estudio = new javax.swing.JLabel();
+        lDistribuidora = new javax.swing.JLabel();
+        distribuidora = new javax.swing.JLabel();
+        lTipoMidia = new javax.swing.JLabel();
+        tipoMidia = new javax.swing.JLabel();
+        lDuracao = new javax.swing.JLabel();
+        duracao = new javax.swing.JLabel();
         lClassInd = new javax.swing.JLabel();
         clasInd = new javax.swing.JLabel();
         lEstoque = new javax.swing.JLabel();
@@ -76,7 +69,7 @@ public class Jogo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Informacoes.setLayout(new java.awt.GridLayout(20, 0, 0, 3));
+        Informacoes.setLayout(new java.awt.GridLayout(22, 0, 0, 3));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel1.setText("Informações:");
@@ -88,23 +81,29 @@ public class Jogo extends javax.swing.JFrame {
         nome.setText("jLabel10");
         Informacoes.add(nome);
 
-        lDesenvolvedor.setText("Desenvolvedor:");
-        Informacoes.add(lDesenvolvedor);
+        lEstudio.setText("Estudio:");
+        Informacoes.add(lEstudio);
 
-        desenvolvedor.setText("jLabel11");
-        Informacoes.add(desenvolvedor);
+        estudio.setText("jLabel11");
+        Informacoes.add(estudio);
 
-        lPublicadora.setText("Publicadora: ");
-        Informacoes.add(lPublicadora);
+        lDistribuidora.setText("Distribuidora: ");
+        Informacoes.add(lDistribuidora);
 
-        publicadora.setText("jLabel12");
-        Informacoes.add(publicadora);
+        distribuidora.setText("jLabel12");
+        Informacoes.add(distribuidora);
 
-        lPlataforma.setText("Plataforma: ");
-        Informacoes.add(lPlataforma);
+        lTipoMidia.setText("Tipo de Midia");
+        Informacoes.add(lTipoMidia);
 
-        plataforma.setText("jLabel16");
-        Informacoes.add(plataforma);
+        tipoMidia.setText("jLabel4");
+        Informacoes.add(tipoMidia);
+
+        lDuracao.setText("Duração:");
+        Informacoes.add(lDuracao);
+
+        duracao.setText("jLabel5");
+        Informacoes.add(duracao);
 
         lClassInd.setText("Classificação Indicativa:");
         Informacoes.add(lClassInd);
@@ -151,7 +150,7 @@ public class Jogo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Informacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE))
+                    .addComponent(jBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -161,7 +160,7 @@ public class Jogo extends javax.swing.JFrame {
                 .addComponent(Informacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -193,7 +192,7 @@ public class Jogo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Jogo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new VideoTela().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -202,21 +201,23 @@ public class Jogo extends javax.swing.JFrame {
     private javax.swing.JButton botaoAlugar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JLabel clasInd;
-    private javax.swing.JLabel desenvolvedor;
+    private javax.swing.JLabel distribuidora;
+    private javax.swing.JLabel duracao;
     private javax.swing.JLabel estoque;
+    private javax.swing.JLabel estudio;
     private javax.swing.JPanel jBotoes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lAlugado;
     private javax.swing.JLabel lClassInd;
-    private javax.swing.JLabel lDesenvolvedor;
+    private javax.swing.JLabel lDistribuidora;
+    private javax.swing.JLabel lDuracao;
     private javax.swing.JLabel lEstoque;
+    private javax.swing.JLabel lEstudio;
     private javax.swing.JLabel lNome;
-    private javax.swing.JLabel lPlataforma;
     private javax.swing.JLabel lPreco;
-    private javax.swing.JLabel lPublicadora;
+    private javax.swing.JLabel lTipoMidia;
     private javax.swing.JLabel nome;
-    private javax.swing.JLabel plataforma;
     private javax.swing.JLabel preco;
-    private javax.swing.JLabel publicadora;
+    private javax.swing.JLabel tipoMidia;
     // End of variables declaration//GEN-END:variables
 }

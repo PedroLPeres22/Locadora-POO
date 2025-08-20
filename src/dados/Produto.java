@@ -23,6 +23,7 @@ public class Produto {
         this.estaAlugado = false;
         this.alugueis = 0;
         this.estoque = estoque;
+        this.classInd = classInd;
     }
     
     public String getNome(){
