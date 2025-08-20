@@ -21,6 +21,7 @@ public class ClienteTela extends javax.swing.JFrame {
 
     public ClienteTela(dados.Cliente cliente) {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         nome.setText(cliente.getNome());
         telefone.setText(cliente.getTelefone());
         endereco.setText(cliente.getEndereco());
