@@ -40,7 +40,7 @@ public class Jogo extends javax.swing.JFrame {
             preco.setText("R$ " + g.getPreco());
             botaoAlugar.setEnabled(!g.estaAlugado());
         }
-        );
+        
     }
 
     /**
