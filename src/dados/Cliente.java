@@ -1,10 +1,13 @@
 package dados;
 
+import java.util.ArrayList;
+
 public class Cliente {
     private String nome, endereco, telefone;
     private long multaAtraso;
     private boolean atrasoDevol;
     private static double valorMulta;
+    private ArrayList<Produto> locados = new ArrayList<>();
     //nome = Nome do cliente
     //endereco = Endereço do cliente
     //telefone = Telefone do cliente
@@ -36,6 +39,9 @@ public class Cliente {
     public boolean getAtrasoDevol(){
         return atrasoDevol;
     }
+    public ArrayList<Produto> getLocados(){
+        return locados;
+    }
     
     //Setters
     public void setNome(String nome){
@@ -52,6 +58,9 @@ public class Cliente {
     }
     public void setAtrasoDevol(boolean atrasoDevol){
         this.atrasoDevol = atrasoDevol;
+    }
+    public void setLocados(ArrayList<Produto> locados){
+        this.locados = locados;
     }
     
     //Métodos static
