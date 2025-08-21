@@ -22,6 +22,10 @@ public class Cliente {
         this.multaAtraso = 0;
         this.atrasoDevol = false;
     }
+
+    // Construtor vazio necessário para o Firestore
+    public Cliente() {
+    }
     
     //Getters
     public String getNome(){
