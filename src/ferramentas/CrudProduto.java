@@ -34,7 +34,6 @@ public class CrudProduto {
             dados.put("estaAlugado", produto.estaAlugado());
             dados.put("alugueis", produto.getAlugueis());
             dados.put("estoque", produto.getEstoque());
-            dados.put("preco", produto.getPreco());
 
             if (produto instanceof Game) {
                 Game g = (Game) produto;
@@ -42,8 +41,7 @@ public class CrudProduto {
                 dados.put("desenvolvedor", g.getDesenvolvedor());
                 dados.put("plataforma", g.getPlataforma());
             }
-            if (produto instanceof Video) {
-                Video v = (Video) produto;
+            if (produto instanceof Video v) {
                 dados.put("estudio", v.getEstudio());
                 dados.put("distribuidora", v.getDistribuidora());
                 dados.put("formato", v.getFormato());
@@ -70,7 +68,6 @@ public class CrudProduto {
             dados.put("estaAlugado", produto.estaAlugado());
             dados.put("alugueis", produto.getAlugueis());
             dados.put("estoque", produto.getEstoque());
-            dados.put("preco", produto.getPreco());
 
             if (produto instanceof Game) {
                 Game g = (Game) produto;
@@ -78,8 +75,7 @@ public class CrudProduto {
                 dados.put("desenvolvedor", g.getDesenvolvedor());
                 dados.put("plataforma", g.getPlataforma());
             }
-            if (produto instanceof Video) {
-                Video v = (Video) produto;
+            if (produto instanceof Video v) {
                 dados.put("estudio", v.getEstudio());
                 dados.put("distribuidora", v.getDistribuidora());
                 dados.put("formato", v.getFormato());
@@ -91,7 +87,7 @@ public class CrudProduto {
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso", "Cadastro",
                     JOptionPane.INFORMATION_MESSAGE);
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao criar produto: " + e.getLocalizedMessage(),
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto: " + e.getLocalizedMessage(),
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -130,11 +126,45 @@ public class CrudProduto {
         }
     }
 
-    public static void encontrarProduto(String id){
+    public static Produto encontrarProduto(String id, String collection){
         try{
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Erro ao procurar o produto: "+e.getLocalizedMessage(),"ERRO!",JOptionPane.WARNING_MESSAGE);
+            DocumentSnapshot doc = db.collection("produtos").document(id).get().get();
+            if (doc.exists()){
+                String tipo = doc.getString("tipo");
+                if("Game".equalsIgnoreCase(tipo)) {
+                    return new Game(
+                            doc.getString("nome"),
+                            doc.getString("codigo"),
+                            doc.getString("classInd"),
+                            doc.getString("publicadora"),
+                            doc.getString("desenvolvedor"),
+                            doc.getString("plataforma"),
+                            doc.getBoolean("estaAlugado"),
+                            doc.getLong("alugueis"),
+                            doc.getLong("estoque")
+                    );
+                }else{
+                    return new Video(
+                            doc.getString("nome"),
+                            doc.getString("codigo"),
+                            doc.getString("classInd"),
+                            doc.getString("estudio"),
+                            doc.getString("distribuidora"),
+                            doc.getString("formato"),
+                            doc.getString("tipoMidia"),
+                            doc.getLong("duracao").intValue(),
+                            doc.getBoolean("estaAlugado"),
+                            doc.getLong("alugueis"),
+                            doc.getLong("estoque")
+                    );
+                }
+            } else {
+                System.out.println("Produto não encontrado!");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao buscar produto: " + e.getLocalizedMessage(),
+                    "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
+        return null;
     }
 }
