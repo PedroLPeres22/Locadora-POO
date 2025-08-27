@@ -1,0 +1,10 @@
+Comentários gerais do Módulo "Dados"
+
+Esse módulo reúne as abstrações de dados a serem processados pelo programa em classes específicas.
+
+Classes:
+    - Cliente: Informações pessoais de um cliente cadastrado na Locadora
+    - Produto: Dados gerais de produtos da Locadora
+        -> Game: Dados específicos dos Video Games disponíveis para locação
+        -> Vídeo: Dados específicos dos Vídeos (Filmes, Coletâneas, Séries, etc.) disponíveis para locação
+    - Venda: Dados pertinentes à transações realizadas pela locadora

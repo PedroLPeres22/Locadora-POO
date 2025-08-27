@@ -1,0 +1,11 @@
+Comentários gerais do Módulo "Ferramentas"
+
+Esse módulo reúne as ferramentas, classes responsáveis por intermediar operações frequentes do programa.
+
+Classes:
+
+    - Crud (Cliente, Produto ou Vendas): Classes responsáveis por interagir com o BD e criar, listar, buscar ou remover
+        dados de determinada coleção.
+    - FirestoreConnection: Classe que inicializa a conexão com o BD Firestore.
+    - GeradorID: Classe que gera IDs aleatórios para dados cadastrados.
+    - VerificarDados: Classe que contém métodos de verificação de dados a serem cadastrados.

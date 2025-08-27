@@ -21,7 +21,7 @@ public class CrudVendas {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-    //método para criar
+    //método para criar um registro de venda no banco de dados
     public static void criarVenda(Venda venda){
         try {
             Map<String, Object> dados = new HashMap<>();
@@ -39,7 +39,8 @@ public class CrudVendas {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Remove uma venda do banco de dados
+    //Esse método acessa a coleção "vendas" e deleta o documento correspondente ao id recebido
     public static void deletarVenda(String id) {
         try {
             db.collection("vendas").document(id).delete().get();
@@ -51,9 +52,11 @@ public class CrudVendas {
         }
     }
 
+    //Busca as vendas no banco de dados, guarda-os em um ArrayList depois o retorna
     public static ArrayList<Venda> listarVendas(){
         ArrayList<Venda> listaVendas = new ArrayList<>();
         try{
+            //Consulta a Coleção vendas
             ApiFuture<QuerySnapshot> future = db.collection("vendas").get();
             List<QueryDocumentSnapshot> documentos = future.get().getDocuments();
 
@@ -68,7 +71,7 @@ public class CrudVendas {
         }
         return null;
     }
-
+    //Busca uma venda específica no banco de dados a partir do seu id
     public static Venda encontrarVenda(String id){
         try{
             DocumentSnapshot doc = db.collection("vendas").document(id).get().get();
