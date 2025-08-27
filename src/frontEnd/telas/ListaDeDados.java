@@ -54,6 +54,7 @@ public class ListaDeDados extends javax.swing.JPanel {
         tabelaJogos.carregarJogos(listaDeJogos);
         tabelaVideo.carregarVideo(listaDeVideos);
         tabelaCliente.carregarClientes(listaDeClientes);
+        tabelaVendas.carregarVendas(listaDeVendas);
 
         
         Container.add(tabelaVendas, "Vendas");

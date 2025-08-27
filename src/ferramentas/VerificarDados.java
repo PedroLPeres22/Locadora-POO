@@ -9,6 +9,7 @@ public class VerificarDados {
         if(telefone.isBlank()){return false;}
         return telefone.matches("\\(\\d{2}\\)\\d{5}-\\d{4}");
     }
+    //verifica se algum campo está vazio
     public static boolean estaVazio(String string){
         if(string.isBlank()){
             return false;

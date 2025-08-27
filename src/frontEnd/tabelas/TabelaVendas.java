@@ -43,7 +43,7 @@ public class TabelaVendas extends javax.swing.JPanel {
         jTable1.getTableHeader().setReorderingAllowed(false);
     }
 
-    public void carregarJogos(List<Venda> vendas) {
+    public void carregarVendas(List<Venda> vendas) {
         this.vendas = vendas; // guarda a lista para uso no clique
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0); // limpa tabela
@@ -51,6 +51,7 @@ public class TabelaVendas extends javax.swing.JPanel {
         for (Venda v : vendas) {
             model.addRow(new Object[]{
                     v.getCodigo(),
+                    v.getIdCliente(),
                     v.getIdProduto(),
                     v.getDataLocar(),
                     v.getDataDevol(),
