@@ -70,7 +70,7 @@ public class CrudProduto {
             dados.put("estaAlugado", produto.estaAlugado());
             dados.put("alugueis", produto.getAlugueis());
             dados.put("estoque", produto.getEstoque());
-
+            //Verifica qual o tipo de produto,se é do tipo jogo ou do tipo vídeo
             if (produto instanceof Game) {
                 Game g = (Game) produto;
                 dados.put("publicadora", g.getPublicadora());
@@ -116,11 +116,12 @@ public class CrudProduto {
     }
     //Busca os produtos no banco de dados, guarda-os em um ArrayList e o retorna
     public static ArrayList<Produto> listarProdutos(String collection) {
+        //ArrayList que recebera os produtos
         ArrayList<Produto> produtos = new ArrayList<>();
         try {
             ApiFuture<QuerySnapshot> future = db.collection(collection).get();
             List<QueryDocumentSnapshot> documentos = future.get().getDocuments();
-
+            //Verifica qual o tipo de produto e o armazena no ArrayList
             for (QueryDocumentSnapshot doc : documentos) {
                 if (collection.equalsIgnoreCase("jogos")) {
                     Produto produto = doc.toObject(Game.class); // Converte o documento para Produto
@@ -141,9 +142,13 @@ public class CrudProduto {
     //Este método encontra um produto utilizando o ID
     public static Produto encontrarProduto(String id, String collection) {
         try {
-            DocumentSnapshot doc = db.collection("produtos").document(id).get().get();
+            //Consulta o documento correspondente ao id recebido
+            DocumentSnapshot doc = db.collection(collection).document(id).get().get();
+            //Verifica se o documento existe
             if (doc.exists()) {
+                //Obtem o tipo do produto
                 String tipo = doc.getString("tipo");
+                //Se for Game, retorna um Objeto Game
                 if ("Game".equalsIgnoreCase(tipo)) {
                     return new Game(
                             doc.getString("nome"),
@@ -158,6 +163,7 @@ public class CrudProduto {
                             doc.getLong("preco")
                             );
                 } else {
+                    //Caso contrário,retorna um Objeto Video
                     return new Video(
                             doc.getString("nome"),
                             doc.getString("codigo"),

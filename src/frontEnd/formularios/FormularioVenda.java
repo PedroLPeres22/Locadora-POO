@@ -4,6 +4,11 @@
  */
 package frontEnd.formularios;
 
+import dados.Produto;
+import dados.Venda;
+import static ferramentas.GeradorID.gerarID;
+import static ferramentas.CrudVendas.criarVenda;
+
 /**
  *
  * @author gbert
@@ -11,12 +16,19 @@ package frontEnd.formularios;
 public class FormularioVenda extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormularioVenda.class.getName());
-
+    Produto produto;
     /**
      * Creates new form FormularioVenda
      */
     public FormularioVenda() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    }
+
+    public FormularioVenda(Produto produto) {
+        initComponents();
+        this.produto = produto;
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -90,11 +102,13 @@ public class FormularioVenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
-        // TODO add your handling code here:
+        String telefone = tfTelefone.getText();
+        Venda venda = new Venda(telefone, this.produto.getCodigo(), this.produto.getPreco(), gerarID());
+        criarVenda(venda);
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     /**

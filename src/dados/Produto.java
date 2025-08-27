@@ -30,7 +30,7 @@ public class Produto {
     // Construtor vazio necessário para o Firestore
     public Produto() {
     }
-    
+    //Getters
     public String getNome(){
         return nome;
     }
@@ -57,7 +57,7 @@ public class Produto {
     public String getClassInd() {
         return classInd;
     }
-    
+    //Setters
     public void setNome(String nome){
         this.nome = nome;
     }

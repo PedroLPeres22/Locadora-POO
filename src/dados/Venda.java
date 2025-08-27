@@ -1,6 +1,7 @@
 package dados;
 
 import java.time.chrono.ChronoLocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.time.LocalDate;
@@ -9,8 +10,9 @@ import java.time.LocalDate;
 
 public class Venda {
     private long valorTotal;
-    private String codigo, idCliente, idProduto;
-    private LocalDate dataLocar, dataDevol;
+    private String codigo, idCliente, idProduto, dataLocar, dataDevol;
+    private LocalDate hoje;
+    private LocalDate daquiTresDias;
     // idCliente = telefone do Cliente que locou o produto
     // idProduto = codigo do Produto locado pelo Cliente
     // locados = ArrayList de produtos locados
@@ -18,15 +20,21 @@ public class Venda {
     // dataLocar = data em que os produtos foram locados
     // dataDevol = data em que os produtos devem ser devolvidos
 
+    public Venda(){
+    }
+
     public Venda(String idCliente, String idProduto, long valorTotal, String codigo) {
         this.idCliente = idCliente;
         this.idProduto = idProduto;
         this.valorTotal = valorTotal;
-        this.dataLocar = LocalDate.now();
-        this.dataDevol = dataLocar.plusDays(3);
+        this.hoje = LocalDate.now();
+        this.daquiTresDias = hoje.plusDays(3);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.dataLocar = hoje.format(formatter);
+        this.dataDevol = daquiTresDias.format(formatter);
         this.codigo = codigo;
     }
-
+    //Getters
     public String getCliente() {
         return idCliente;
     }
@@ -37,11 +45,11 @@ public class Venda {
         return valorTotal;
     }
 
-    public LocalDate getDataLocar() {
+    public String getDataLocar() {
         return dataLocar;
     }
 
-    public LocalDate getDataDevol() {
+    public String getDataDevol() {
         return dataDevol;
     }
 
@@ -51,6 +59,7 @@ public class Venda {
 
     public String getIdProduto(){ return idProduto;}
 
+    //Setters
     public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
@@ -59,11 +68,11 @@ public class Venda {
         this.valorTotal = valorTotal;
     }
 
-    public void setDataLocar(LocalDate dataLocar) {
+    public void setDataLocar(String dataLocar) {
         this.dataLocar = dataLocar;
     }
 
-    public void setDataDevol(LocalDate dataDevol){this.dataDevol = dataDevol;}
+    public void setDataDevol(String dataDevol){this.dataDevol = dataDevol;}
 
     public void setCodigo(String codigo) { this.codigo = codigo;}
 

@@ -9,12 +9,13 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class FirestoreConnection { //Realiza a conexão com o banco de dados
-
+public class FirestoreConnection {
+    //Realiza a conexão com o banco de dados
     private static Firestore db;
 
     public static Firestore getFirestore() throws IOException {
         if (db == null) {
+            //Lê o arquivo credencial do banco de dados Firebase
             FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
 
             FirebaseOptions options = FirebaseOptions.builder()

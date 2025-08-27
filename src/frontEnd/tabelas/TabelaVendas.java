@@ -4,6 +4,15 @@
  */
 package frontEnd.tabelas;
 
+import dados.Game;
+import dados.Venda;
+import frontEnd.telas.JogoTela;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author gbert
@@ -13,8 +22,41 @@ public class TabelaVendas extends javax.swing.JPanel {
     /**
      * Creates new form TabelaVendas
      */
+    private List<Venda> vendas = new ArrayList<Venda>();
     public TabelaVendas() {
         initComponents();
+        configurarTabela();
+    }
+
+
+    private void configurarTabela() {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {},
+                new String [] { "ID", "Telefone do cliente", "ID do produto", "Data da locação", "Data limite de devolição", "Valor da venda" }
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // impede edição por clique/duplo-clique
+            }
+        });
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+    }
+
+    public void carregarJogos(List<Venda> vendas) {
+        this.vendas = vendas; // guarda a lista para uso no clique
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // limpa tabela
+
+        for (Venda v : vendas) {
+            model.addRow(new Object[]{
+                    v.getCodigo(),
+                    v.getIdProduto(),
+                    v.getDataLocar(),
+                    v.getDataDevol(),
+                    "R$ " + v.getValorTotal()
+            });
+        }
     }
 
     /**

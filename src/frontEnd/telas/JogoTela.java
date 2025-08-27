@@ -137,6 +137,11 @@ public class JogoTela extends javax.swing.JFrame {
         jBotoes.setLayout(new java.awt.GridLayout(1, 0));
 
         botaoAlugar.setText("Alugar");
+        botaoAlugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlugarActionPerformed(evt);
+            }
+        });
         jBotoes.add(botaoAlugar);
 
         botaoExcluir.setText("Excluir");
@@ -182,7 +187,8 @@ public class JogoTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoAlugarActionPerformed(java.awt.event.ActionEvent evt) {
-        formVenda = new FormularioVenda();
+        formVenda = new FormularioVenda(this.game);
+        formVenda.setVisible(true);
     }
 
     /**

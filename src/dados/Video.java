@@ -27,7 +27,7 @@ public class Video extends Produto{
     public Video() {
         super();
     }
-    
+    //Getters
     public String getEstudio(){
         return estudio;
     }
@@ -43,7 +43,7 @@ public class Video extends Produto{
     public int getDuracao(){
         return duracao;
     }
-    
+    //Setters
     public void setEstudio(String estudio){
         this.estudio = estudio;
     }

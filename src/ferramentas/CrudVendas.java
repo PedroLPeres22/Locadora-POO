@@ -32,10 +32,10 @@ public class CrudVendas {
             dados.put("dataDevol", venda.getDataDevol());
             //Salva na coleção vendas
             db.collection("vendas").document(venda.getCodigo()).set(dados).get();
-            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso", "Cadastro",
+            JOptionPane.showMessageDialog(null, "Venda registrada com sucesso", "Registro",
                     JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao criar produto: " + e.getLocalizedMessage(),
+            JOptionPane.showMessageDialog(null, "Erro ao registrar Venda: " + e.getLocalizedMessage(),
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -44,10 +44,10 @@ public class CrudVendas {
     public static void deletarVenda(String id) {
         try {
             db.collection("vendas").document(id).delete().get();
-            JOptionPane.showMessageDialog(null, "Produto deletado com sucesso", "Delete",
+            JOptionPane.showMessageDialog(null, "Venda deletado com sucesso", "Delete",
                     JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Erro ao remover produto" + e.getLocalizedMessage(), "ERRO!",
+            JOptionPane.showMessageDialog(null, "Erro ao remover Venda" + e.getLocalizedMessage(), "ERRO!",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -83,10 +83,10 @@ public class CrudVendas {
                         doc.getString("codigo"));
 
             }else{
-                System.out.println("Cliente não encontrado!");
+                System.out.println("Venda não encontrada!");
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro ao buscar cliente: " + e.getLocalizedMessage(),
+            JOptionPane.showMessageDialog(null, "Erro ao buscar venda: " + e.getLocalizedMessage(),
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
         return null;

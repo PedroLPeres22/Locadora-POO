@@ -19,6 +19,7 @@ import dados.Video;
 
 import static ferramentas.CrudCliente.listarCliente;
 import static ferramentas.CrudProduto.listarProdutos;
+import static ferramentas.CrudVendas.listarVendas;
 
 /**
  *
@@ -43,6 +44,7 @@ public class ListaDeDados extends javax.swing.JPanel {
         listaDeJogos = converteProdutoParaGame(listarProdutos("jogos"));
         listaDeVideos = converteProdutoParaVideo(listarProdutos("videos"));
         listaDeClientes = listarCliente();
+        listaDeVendas = listarVendas();
         
         tabelaCliente = new TabelaCliente();
         tabelaJogos = new TabelaJogos();
