@@ -21,7 +21,7 @@ public class CrudVendas {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-    //
+    //método
     public static void criarVenda(Venda venda){
         try {
             Map<String, Object> dados = new HashMap<>();
