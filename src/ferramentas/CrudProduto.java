@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutionException;
 
 public class CrudProduto {
     private static Firestore db;
-
+    //Conecta com o banco de dados
     static {
         try {
             db = FirestoreConnection.getFirestore();
@@ -21,7 +21,7 @@ public class CrudProduto {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    // Cadastra o produto no banco de dados
     public static void criarProduto(Produto produto, String collection) {
         try {
             Map<String, Object> dados = new HashMap<>();
@@ -32,7 +32,7 @@ public class CrudProduto {
             dados.put("estaAlugado", produto.estaAlugado());
             dados.put("alugueis", produto.getAlugueis());
             dados.put("estoque", produto.getEstoque());
-
+            //Verifica qual o tipo de produto,se é do tipo jogo ou do tipo vídeo
             if (produto instanceof Game) {
                 Game g = (Game) produto;
                 dados.put("publicadora", g.getPublicadora());
@@ -56,6 +56,8 @@ public class CrudProduto {
         }
     }
 
+    //Sobrecarga de método,pois o método editarProduto(); utiliza o id para identificar
+    //o produto a ser editado
     public static void criarProduto(Produto produto, String collection, String id) {
         try {
             Map<String, Object> dados = new HashMap<>();
@@ -89,7 +91,7 @@ public class CrudProduto {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Exclui um produto pelo id
     public static void deletarProduto(String id, String collection) {
         try {
             db.collection(collection).document(id).delete().get();
@@ -100,7 +102,7 @@ public class CrudProduto {
                     JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Edita um produto pelo id
     public static void editarProduto(String id, String collection, Produto novoProduto) {
         try {
             criarProduto(novoProduto, collection, id);
@@ -110,7 +112,7 @@ public class CrudProduto {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Busca os produtos no banco de dados, guarda-os em um ArrayList e o retorna
     public static ArrayList<Produto> listarProdutos(String collection) {
         ArrayList<Produto> produtos = new ArrayList<>();
         try {
@@ -134,7 +136,7 @@ public class CrudProduto {
         }
         return null;
     }
-
+    //Este método encontra um produto utilizando o ID
     public static Produto encontrarProduto(String id, String collection) {
         try {
             DocumentSnapshot doc = db.collection("produtos").document(id).get().get();

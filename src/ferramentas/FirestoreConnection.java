@@ -9,7 +9,7 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class FirestoreConnection {
+public class FirestoreConnection { //Realiza a conexão com o banco de dados
 
     private static Firestore db;
 

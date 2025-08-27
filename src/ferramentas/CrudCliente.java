@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class CrudCliente {
     private static Firestore db;
-
+    // Conecta com banco de dados
     static {
         try {
             db = FirestoreConnection.getFirestore();
@@ -24,7 +24,7 @@ public class CrudCliente {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Cadastra o cliente no Banco de Dados
     public static void criarCliente(Cliente cliente){
         try {
             Map<String, Object> dados = new HashMap<>();
@@ -43,7 +43,7 @@ public class CrudCliente {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
-
+    //Lista todos os clientes
     public static ArrayList<Cliente> listarCliente(){
         ArrayList<Cliente> listaClientes = new ArrayList<>();
         try{
@@ -61,10 +61,10 @@ public class CrudCliente {
         }
         return null;
     }
-
+    //Encontra o cliente pelo telefone
     public static Cliente encontrarCliente(String telefone){
         try{
-            DocumentSnapshot doc = db.collection("produtos").document(telefone).get().get();
+            DocumentSnapshot doc = db.collection("clientes").document(telefone).get().get();
             if (doc.exists()){
                 return new Cliente(doc.getString("nome"),
                                    doc.getString("endereco"),
@@ -79,7 +79,7 @@ public class CrudCliente {
         }
         return null;
     }
-
+    //Remove um cliente utilizando o telefone como referência
     public static void deletarCliente(String telefone){
         try{
             db.collection("clientes").document(telefone).delete().get();
