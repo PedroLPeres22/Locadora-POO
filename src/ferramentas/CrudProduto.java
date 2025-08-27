@@ -25,6 +25,7 @@ public class CrudProduto {
     public static void criarProduto(Produto produto, String collection) {
         try {
             Map<String, Object> dados = new HashMap<>();
+            //Adiciona os atributos comuns a todos os produtos
             dados.put("nome", produto.getNome());
             dados.put("preco", produto.getPreco());
             dados.put("codigo", produto.getCodigo());
@@ -61,6 +62,7 @@ public class CrudProduto {
     public static void criarProduto(Produto produto, String collection, String id) {
         try {
             Map<String, Object> dados = new HashMap<>();
+            //Adiciona os atributos comuns a todos os produtos
             dados.put("nome", produto.getNome());
             dados.put("preco", produto.getPreco());
             dados.put("codigo", produto.getCodigo());

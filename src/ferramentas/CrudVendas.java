@@ -72,6 +72,7 @@ public class CrudVendas {
         return null;
     }
     //Busca uma venda específica no banco de dados a partir do seu id
+    //Em caso de erro na consulta,exibi uma mensagem pro usuário e retorna null
     public static Venda encontrarVenda(String id){
         try{
             DocumentSnapshot doc = db.collection("vendas").document(id).get().get();

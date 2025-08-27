@@ -5,6 +5,8 @@
 package frontEnd.telas;
 
 import dados.Video;
+import frontEnd.formularios.FormularioVenda;
+
 import static ferramentas.CrudProduto.deletarProduto;
 
 /**
@@ -14,7 +16,7 @@ import static ferramentas.CrudProduto.deletarProduto;
 public class VideoTela extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VideoTela.class.getName());
-
+    private FormularioVenda formVenda;
     /**
      * Creates new form Video
      */
@@ -177,6 +179,10 @@ public class VideoTela extends javax.swing.JFrame {
             this.dispose(); // Fecha a janela após a exclusão
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoAlugarActionPerformed(java.awt.event.ActionEvent evt) {
+        formVenda = new FormularioVenda();
+    }
 
     /**
      * @param args the command line arguments

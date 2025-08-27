@@ -7,6 +7,8 @@ package frontEnd.telas;
 import javax.swing.JOptionPane;
 
 import dados.Game;
+import frontEnd.formularios.FormularioVenda;
+
 import static ferramentas.CrudProduto.deletarProduto;
 
 /**
@@ -16,7 +18,7 @@ import static ferramentas.CrudProduto.deletarProduto;
 public class JogoTela extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JogoTela.class.getName());
-
+    private FormularioVenda formVenda;
     /**
      * Creates new form Jogo
      */
@@ -178,6 +180,10 @@ public class JogoTela extends javax.swing.JFrame {
             this.dispose(); // Fecha a janela após a exclusão
         }
     }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoAlugarActionPerformed(java.awt.event.ActionEvent evt) {
+        formVenda = new FormularioVenda();
+    }
 
     /**
      * @param args the command line arguments
