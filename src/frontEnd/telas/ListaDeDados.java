@@ -13,8 +13,12 @@ import java.util.ArrayList;
 
 import dados.Cliente;
 import dados.Game;
+import dados.Produto;
 import dados.Venda;
 import dados.Video;
+
+import static ferramentas.CrudCliente.listarCliente;
+import static ferramentas.CrudProduto.listarProdutos;
 
 /**
  *
@@ -36,21 +40,10 @@ public class ListaDeDados extends javax.swing.JPanel {
 
     public ListaDeDados() {
         initComponents();
-        listaDeJogos = new ArrayList<Game>();
-        listaDeVideos = new ArrayList<Video>();
-        listaDeClientes = new ArrayList<Cliente>();
-        // Exemplo de inicialização de lista de vendas
-        listaDeVendas = new ArrayList<Venda>();
-        listaDeJogos.add(new Game("The Witcher 3", "001", "18", "CD Projekt", "CD Projekt RED", "PC", false, 10, 5));
-        listaDeJogos.add(new Game("God of War", "002", "16", "Sony", "Santa Monica Studio", "PS5", false, 20, 3));
-
-        listaDeVideos.add(new Video("The Matrix", "01", "14", "Warner Bros.", "Warner Bros.", "Blu-Ray", "Filme", 136, false, 0L, 5L));
-
-        listaDeVideos.add(new Video("Breaking Bad - Box 1", "02", "16", "High Bridge", "Sony Pictures", "DVD", "Série - Box", 600, false, 2L, 2L));
-
-        listaDeClientes.add(new Cliente("Alice", "teste", "1234567"));
-        listaDeClientes.add(new Cliente("Bob", "teste2", "9876543"));
-
+        listaDeJogos = converteProdutoParaGame(listarProdutos("jogos"));
+        listaDeVideos = converteProdutoParaVideo(listarProdutos("videos"));
+        listaDeClientes = listarCliente();
+        
         tabelaCliente = new TabelaCliente();
         tabelaJogos = new TabelaJogos();
         tabelaVideo = new TabelaVideo();
@@ -65,6 +58,36 @@ public class ListaDeDados extends javax.swing.JPanel {
         Container.add(tabelaCliente, "Cliente");
         Container.add(tabelaJogos, "Jogos");
         Container.add(tabelaVideo, "Video");
+    }
+
+    public void atualizarListas() {
+        listaDeJogos = converteProdutoParaGame(listarProdutos("jogos"));
+        listaDeVideos = converteProdutoParaVideo(listarProdutos("videos"));
+        listaDeClientes = listarCliente();
+        
+        tabelaJogos.carregarJogos(listaDeJogos);
+        tabelaVideo.carregarVideo(listaDeVideos);
+        tabelaCliente.carregarClientes(listaDeClientes);
+    }
+
+    private ArrayList<Game> converteProdutoParaGame(ArrayList<Produto> produtos) {
+        ArrayList<Game> jogos = new ArrayList<>();
+        for (Produto p : produtos) {
+            if (p instanceof Game) {
+                jogos.add((Game) p);
+            }
+        }
+        return jogos;
+    }
+
+    private ArrayList<Video> converteProdutoParaVideo(ArrayList<Produto> produtos) {
+        ArrayList<Video> videos = new ArrayList<>();
+        for (Produto p : produtos) {
+            if (p instanceof Video) {
+                videos.add((Video) p);
+            }
+        }
+        return videos;
     }
 
     /**
@@ -124,7 +147,7 @@ public class ListaDeDados extends javax.swing.JPanel {
         });
         botoesCliente.add(botaoVendas);
 
-        Container.setLayout(new java.awt.CardLayout());
+        Container.setLayout(new CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

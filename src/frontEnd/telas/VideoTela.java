@@ -5,6 +5,7 @@
 package frontEnd.telas;
 
 import dados.Video;
+import static ferramentas.CrudProduto.deletarProduto;
 
 /**
  *
@@ -32,6 +33,7 @@ public class VideoTela extends javax.swing.JFrame {
         estoque.setText(String.valueOf(video.getEstoque()));
         alugado.setText(video.estaAlugado() ? "Sim" : "Não");
         preco.setText("R$ " + video.getPreco());
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -167,7 +169,13 @@ public class VideoTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        // TODO add your handling code here:
+        int resposta = javax.swing.JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir este vídeo?", "Confirmação", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (resposta == javax.swing.JOptionPane.YES_OPTION) {
+            // Lógica para excluir o vídeo
+            deletarProduto(nome.getText(), "videos");
+            javax.swing.JOptionPane.showMessageDialog(this, "Reinicie a Tela Listar Dados.");
+            this.dispose(); // Fecha a janela após a exclusão
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**

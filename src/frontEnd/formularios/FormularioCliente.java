@@ -4,6 +4,9 @@
  */
 package frontEnd.formularios;
 
+import dados.Cliente;
+import ferramentas.CrudCliente;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -170,7 +173,9 @@ public class FormularioCliente extends javax.swing.JPanel {
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
         String endereco = tfTelefone.getText();
-        JOptionPane.showMessageDialog(formularioContainer, "usuario " + nome + " criado");
+        Cliente cliente = new Cliente(nome, telefone, endereco);
+        CrudCliente.criarCliente(cliente);
+        //JOptionPane.showMessageDialog(formularioContainer, "usuario " + nome + " criado");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

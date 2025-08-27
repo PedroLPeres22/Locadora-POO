@@ -10,11 +10,16 @@ public class Game extends Produto{
     
     public Game(String nome, String codigo, String classInd, String publicadora, 
             String estudio, String plataforma, boolean estaAlugado, long alugueis,
-            long estoque){
-        super(nome, "Game", codigo, classInd, estaAlugado, alugueis, estoque);
+            long estoque, long preco) {
+        super(nome, "Game", codigo, classInd, estaAlugado, alugueis, estoque, preco);
         this.publicadora = publicadora;
         this.desenvolvedor = estudio;
         this.plataforma = plataforma;
+    }
+
+    // Construtor vazio necessário para o Firestore
+    public Game() {
+        super();
     }
     
     public String getPublicadora(){

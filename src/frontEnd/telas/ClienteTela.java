@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd.telas;
-
+import static ferramentas.CrudCliente.deletarCliente;
 /**
  *
  * @author gbert
@@ -126,7 +126,13 @@ public class ClienteTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        // TODO add your handling code here:
+        int resposta = javax.swing.JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir este cliente?", "Confirmação", javax.swing.JOptionPane.YES_NO_OPTION);
+        if (resposta == javax.swing.JOptionPane.YES_OPTION) {
+            // Lógica para excluir o cliente
+            deletarCliente(telefone.getText());
+            javax.swing.JOptionPane.showMessageDialog(this, "Reinicie a Tela Listar Dados.");
+            this.dispose(); // Fecha a janela após a exclusão
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**

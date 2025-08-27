@@ -119,6 +119,7 @@ public class App extends javax.swing.JFrame {
     // mudando de tela para lista de dados
     private void listaBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaBotaoActionPerformed
         CardLayout cl = (CardLayout) tela.getLayout();
+        listaDados.atualizarListas();
         cl.show(tela, "Lista de dados");
     }//GEN-LAST:event_listaBotaoActionPerformed
 

@@ -16,7 +16,7 @@ public class Produto {
     // preco = Preço do aluguel do produto
     
     public Produto(String nome, String tipo, String codigo, String classInd,
-            boolean estaAlugado, long alugueis, long estoque){
+            boolean estaAlugado, long alugueis, long estoque, long preco) {
         this.nome = nome;
         this.tipo = tipo;
         this.codigo = codigo;
@@ -24,6 +24,11 @@ public class Produto {
         this.alugueis = 0;
         this.estoque = estoque;
         this.classInd = classInd;
+        this.preco = preco;
+    }
+
+    // Construtor vazio necessário para o Firestore
+    public Produto() {
     }
     
     public String getNome(){

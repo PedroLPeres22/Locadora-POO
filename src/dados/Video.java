@@ -14,12 +14,18 @@ public class Video extends Produto{
     
     public Video(String nome, String codigo, String classInd, String estudio, 
             String distribuidora, String formato, String tipoMidia, int duracao,
-            boolean estaAlugado, long alugueis, long estoque) {
-        super(nome, "Vídeo", codigo, classInd, estaAlugado, alugueis, estoque);
+            boolean estaAlugado, long alugueis, long estoque, long preco) {
+        super(nome, "Vídeo", codigo, classInd, estaAlugado, alugueis, estoque, preco);
         this.estudio = estudio;
         this.distribuidora = distribuidora;
         this.formato = formato;
         this.tipoMidia = tipoMidia;
+        this.duracao = duracao;
+    }
+
+    // Construtor vazio necessário para o Firestore
+    public Video() {
+        super();
     }
     
     public String getEstudio(){

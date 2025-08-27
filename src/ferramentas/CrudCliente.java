@@ -44,14 +44,17 @@ public class CrudCliente {
         }
     }
 
-    public static String listarCliente(){
+    public static ArrayList<Cliente> listarCliente(){
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
         try{
             ApiFuture<QuerySnapshot> future = db.collection("clientes").get();
             List<QueryDocumentSnapshot> documentos = future.get().getDocuments();
 
             for(QueryDocumentSnapshot doc : documentos){
-                return doc.getId() + "=> " + doc.getData();
+                Cliente cliente = doc.toObject(Cliente.class); // Converte o documento para Cliente
+                listaClientes.add(cliente);
             }
+            return listaClientes;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao listar Clientes: " + e.getLocalizedMessage(),
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
@@ -75,5 +78,16 @@ public class CrudCliente {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
         return null;
+    }
+
+    public static void deletarCliente(String telefone){
+        try{
+            db.collection("clientes").document(telefone).delete().get();
+            JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso", "Delete",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao remover cliente" + e.getLocalizedMessage(), "ERRO!",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 }

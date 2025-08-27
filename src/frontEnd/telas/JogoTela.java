@@ -7,6 +7,7 @@ package frontEnd.telas;
 import javax.swing.JOptionPane;
 
 import dados.Game;
+import static ferramentas.CrudProduto.deletarProduto;
 
 /**
  *
@@ -19,6 +20,7 @@ public class JogoTela extends javax.swing.JFrame {
     /**
      * Creates new form Jogo
      */
+    Game game;
     public JogoTela() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -40,7 +42,7 @@ public class JogoTela extends javax.swing.JFrame {
             preco.setText("R$ " + g.getPreco());
             botaoAlugar.setEnabled(!g.estaAlugado());
         }
-        
+        this.game = g;
     }
 
     /**
@@ -168,7 +170,13 @@ public class JogoTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        // TODO add your handling code here:
+        int resposta = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja excluir este jogo?", "Confirmação", JOptionPane.YES_NO_OPTION);
+        if (resposta == JOptionPane.YES_OPTION) {
+            // Lógica para excluir o jogo
+            deletarProduto(game.getCodigo(), "jogos");
+            JOptionPane.showMessageDialog(this, "Reinicie a Tela Listar Dados.");
+            this.dispose(); // Fecha a janela após a exclusão
+        }
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     /**

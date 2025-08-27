@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="grupoClassificacao">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[500, 650]"/>
@@ -266,6 +270,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrbLivre">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="livre"/>
           </Properties>
           <Events>
@@ -279,6 +289,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrb10">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="10"/>
           </Properties>
           <Constraints>
@@ -289,6 +305,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrb12">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="12"/>
           </Properties>
           <Constraints>
@@ -299,6 +321,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrb14">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="14"/>
           </Properties>
           <Constraints>
@@ -309,6 +337,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrb16">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="16"/>
           </Properties>
           <Events>
@@ -322,6 +356,12 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrb18">
           <Properties>
+            <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="default"/>
+            </Property>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="grupoClassificacao"/>
+            </Property>
             <Property name="label" type="java.lang.String" value="18"/>
           </Properties>
           <Constraints>
