@@ -10,8 +10,12 @@ import dados.Produto;
 import dados.Venda;
 import dados.Video;
 
-import static ferramentas.CrudCliente.encontrarCliente;
+import javax.swing.*;
+
+import static ferramentas.CrudCliente.*;
+import static ferramentas.CrudProduto.editarProduto;
 import static ferramentas.CrudProduto.encontrarProduto;
+import static ferramentas.CrudVendas.editarVenda;
 
 import java.util.logging.Level;
 
@@ -26,6 +30,7 @@ public class VendaTela extends javax.swing.JFrame {
     /**
      * Creates new form VendaTela
      */
+    Venda venda;
     public VendaTela() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -34,7 +39,7 @@ public class VendaTela extends javax.swing.JFrame {
     public VendaTela(Venda v) {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        
+        this.venda = v;
         idVenda.setText(v.getCodigo());
         codigoProduto.setText(v.getIdProduto());
         telefoneCliente.setText(v.getIdCliente());
@@ -206,7 +211,22 @@ public class VendaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        venda.toggleFoiDevolvido();
+        Cliente c = encontrarCliente(venda.getIdCliente());
+        Produto p =  encontrarProduto(venda.getIdProduto(), venda.getColecao());
+        if (p != null){
+            p.setEstoque(p.getEstoque() + 1);
+        }
+        if (c != null) {
+            c.setMultaAtraso(0);
+            c.deletarLocado(p);
+        }
+
+        editarProduto(venda.getIdProduto(), venda.getColecao(), p);
+        editarCliente(c, c.getTelefone());
+        editarVenda(venda, venda.getCodigo());
+
+        JOptionPane.showMessageDialog(rootPane, "Devolução realizada com sucesso!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

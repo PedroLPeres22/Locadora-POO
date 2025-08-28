@@ -43,6 +43,25 @@ public class CrudCliente {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
+
+    public static void criarCliente(Cliente cliente, String telefone){
+        try {
+            Map<String, Object> dados = new HashMap<>();
+            dados.put("nome", cliente.getNome());
+            dados.put("endereco", cliente.getEndereco());
+            dados.put("telefone", telefone);
+            dados.put("multaAtraso", cliente.getMultaAtraso());
+            dados.put("atrasoDevol", cliente.getAtrasoDevol());
+            dados.put("locados", cliente.getLocados());
+            //Acessa a coleção clientes e cadastra o novo cliente
+            db.collection("clientes").document(telefone).set(dados).get();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso", "Cadastro",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente: " + e.getLocalizedMessage(),
+                    "ERRO!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
     //Lista todos os clientes do banco de dados
     public static ArrayList<Cliente> listarCliente(){
         ArrayList<Cliente> listaClientes = new ArrayList<>();
@@ -92,6 +111,16 @@ public class CrudCliente {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Erro ao remover cliente" + e.getLocalizedMessage(), "ERRO!",
                     JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    //Edita informações de um cliente já existente utilizando seu telefone como referência
+    public static void editarCliente(Cliente novoCliente, String telefone) {
+        try {
+            criarCliente(novoCliente, telefone);
+            JOptionPane.showMessageDialog(null, "Produto editado com sucesso");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar produto: "+e.getLocalizedMessage(),
+                    "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
 

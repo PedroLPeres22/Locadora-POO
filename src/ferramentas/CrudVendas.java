@@ -21,6 +21,7 @@ public class CrudVendas {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
     }
+
     //método para criar um registro de venda no banco de dados
     public static void criarVenda(Venda venda){
         try {
@@ -32,8 +33,31 @@ public class CrudVendas {
             dados.put("dataDevol", venda.getDataDevol());
             dados.put("codigo", venda.getCodigo());
             dados.put("colecao", venda.getColecao());
+            dados.put("foiDevolvido", venda.getFoiDevolvido());
             //Salva na coleção vendas
             db.collection("vendas").document(venda.getCodigo()).set(dados).get();
+            JOptionPane.showMessageDialog(null, "Venda registrada com sucesso", "Registro",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao registrar Venda: " + e.getLocalizedMessage(),
+                    "ERRO!", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    //Sobrecarga de Método
+    //Edita uma venda,sobreescrevendo-a
+    public static void criarVenda(Venda venda,String id){
+        try {
+            Map<String, Object> dados = new HashMap<>();
+            dados.put("idCliente", venda.getIdCliente());
+            dados.put("idProduto", venda.getIdProduto());
+            dados.put("valorTotal", venda.getValorTotal());
+            dados.put("dataLocar", venda.getDataLocar());
+            dados.put("dataDevol", venda.getDataDevol());
+            dados.put("codigo", id);
+            dados.put("colecao", venda.getColecao());
+            dados.put("foiDevolvido", venda.getFoiDevolvido());
+            //Salva na coleção vendas
+            db.collection("vendas").document(id).set(dados).get();
             JOptionPane.showMessageDialog(null, "Venda registrada com sucesso", "Registro",
                     JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
@@ -93,5 +117,15 @@ public class CrudVendas {
                     "ERRO!", JOptionPane.WARNING_MESSAGE);
         }
         return null;
+    }
+    //Edita uma venda utilizando sobrecarga de métodos
+    public static void editarVenda(Venda novaVenda, String idvenda) {
+        try {
+            criarVenda(novaVenda,idvenda);
+            JOptionPane.showMessageDialog(null, "Produto editado com sucesso");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao editar produto: " + e.getLocalizedMessage(),
+                    "ERRO!", JOptionPane.WARNING_MESSAGE);
+        }
     }
 }

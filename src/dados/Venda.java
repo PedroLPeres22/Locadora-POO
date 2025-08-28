@@ -20,6 +20,7 @@ public class Venda {
     // valorTotal = Valor total pago para locar os produtos
     // dataLocar = data em que os produtos foram locados
     // dataDevol = data em que os produtos devem ser devolvidos
+    // foiDevolvido = booleano para verificar se um produto foi devolvido
 
     public Venda(){
     }
