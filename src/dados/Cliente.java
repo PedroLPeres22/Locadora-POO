@@ -67,6 +67,14 @@ public class Cliente {
         this.locados = locados;
     }
     
+    public void deletarLocado(Produto p){
+        this.locados.remove(p);
+    }
+
+    public void adicionarLocado(Produto p){
+        this.locados.add(p);
+    }
+
     //Métodos static
     public static void setValorMulta(double novaMulta){
         valorMulta = novaMulta;

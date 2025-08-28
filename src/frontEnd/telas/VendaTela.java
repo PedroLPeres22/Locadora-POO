@@ -4,6 +4,17 @@
  */
 package frontEnd.telas;
 
+import dados.Cliente;
+import dados.Game;
+import dados.Produto;
+import dados.Venda;
+import dados.Video;
+
+import static ferramentas.CrudCliente.encontrarCliente;
+import static ferramentas.CrudProduto.encontrarProduto;
+
+import java.util.logging.Level;
+
 /**
  *
  * @author gbert
@@ -17,7 +28,39 @@ public class VendaTela extends javax.swing.JFrame {
      */
     public VendaTela() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
+
+    public VendaTela(Venda v) {
+        initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        
+        idVenda.setText(v.getCodigo());
+        codigoProduto.setText(v.getIdProduto());
+        telefoneCliente.setText(v.getIdCliente());
+        dataLocacao.setText(v.getDataLocar());
+        dataDevolicao.setText(v.getDataDevol());
+        valor.setText(Double.toString(v.getValorTotal()));
+        
+        Cliente c = encontrarCliente(v.getIdCliente());
+        if (c != null) {
+            nomeCliente.setText(c.getNome());
+            enderecoCliente.setText(c.getEndereco());
+        } else {
+            nomeCliente.setText("Cliente não encontrado");
+            enderecoCliente.setText("Cliente não encontrado");
+        }
+        
+        Produto p = encontrarProduto(v.getIdProduto(), v.getColecao());
+        if (p != null) {
+            nomeProduto.setText(p.getNome());
+        } else {
+            nomeProduto.setText("Produto não encontrado");
+        }
+
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

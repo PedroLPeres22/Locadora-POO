@@ -31,6 +31,7 @@ public class CrudVendas {
             dados.put("dataLocar", venda.getDataLocar());
             dados.put("dataDevol", venda.getDataDevol());
             dados.put("codigo", venda.getCodigo());
+            dados.put("colecao", venda.getColecao());
             //Salva na coleção vendas
             db.collection("vendas").document(venda.getCodigo()).set(dados).get();
             JOptionPane.showMessageDialog(null, "Venda registrada com sucesso", "Registro",
@@ -81,7 +82,8 @@ public class CrudVendas {
                 return new Venda(doc.getString("cliente"),
                         doc.getString("produto"),
                         doc.getLong("valorTotal"),
-                        doc.getString("codigo"));
+                        doc.getString("codigo"),
+                        doc.getString("colecao"));
 
             }else{
                 System.out.println("Venda não encontrada!");

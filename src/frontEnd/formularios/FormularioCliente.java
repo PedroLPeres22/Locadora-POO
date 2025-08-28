@@ -172,8 +172,8 @@ public class FormularioCliente extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
-        String endereco = tfTelefone.getText();
-        Cliente cliente = new Cliente(nome, telefone, endereco);
+        String endereco = tfEndereco.getText();
+        Cliente cliente = new Cliente(nome, endereco, telefone);
         CrudCliente.criarCliente(cliente);
         //JOptionPane.showMessageDialog(formularioContainer, "usuario " + nome + " criado");
     }//GEN-LAST:event_jButton1ActionPerformed

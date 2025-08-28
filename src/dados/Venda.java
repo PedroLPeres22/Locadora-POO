@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 public class Venda {
     private long valorTotal;
-    private String codigo, idCliente, idProduto, dataLocar, dataDevol;
+    private String codigo, idCliente, idProduto, dataLocar, dataDevol, colecao;
     private LocalDate hoje;
     private LocalDate daquiTresDias;
     // idCliente = telefone do Cliente que locou o produto
@@ -23,7 +23,7 @@ public class Venda {
     public Venda(){
     }
 
-    public Venda(String idCliente, String idProduto, long valorTotal, String codigo) {
+    public Venda(String idCliente, String idProduto, long valorTotal, String codigo, String colecao){
         this.idCliente = idCliente;
         this.idProduto = idProduto;
         this.valorTotal = valorTotal;
@@ -33,6 +33,7 @@ public class Venda {
         this.dataLocar = hoje.format(formatter);
         this.dataDevol = daquiTresDias.format(formatter);
         this.codigo = codigo;
+        this.colecao = colecao;
     }
     //Getters
 
@@ -53,6 +54,7 @@ public class Venda {
     public String getIdCliente(){ return idCliente;}
 
     public String getIdProduto(){ return idProduto;}
+    public String getColecao() { return colecao; }
 
     //Setters
     public void setIdCliente(String idCliente) {
@@ -67,9 +69,14 @@ public class Venda {
         this.dataLocar = dataLocar;
     }
 
+    public void setColecao(String colecao) {
+        this.colecao = colecao;
+    }
+
     public void setDataDevol(String dataDevol){this.dataDevol = dataDevol;}
 
     public void setCodigo(String codigo) { this.codigo = codigo;}
 
     public void setProduto(String idProduto) { this.idProduto = idProduto; }
 }
+

@@ -188,8 +188,13 @@ public class VideoTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoAlugarActionPerformed(java.awt.event.ActionEvent evt) {
-        formVenda = new FormularioVenda(this.video);
-        formVenda.setVisible(true);
+        if(video.getEstoque() > 0) {
+            formVenda = new FormularioVenda(video);
+            formVenda.setLocationRelativeTo(null);
+            formVenda.setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Estoque insuficiente para aluguel.");
+        }
     }
 
     /**

@@ -8,6 +8,19 @@ import dados.Produto;
 import dados.Venda;
 import static ferramentas.GeradorID.gerarID;
 import static ferramentas.CrudVendas.criarVenda;
+import static ferramentas.VerificarDados.estaVazio;
+
+import java.util.ArrayList;
+
+import static ferramentas.CrudProduto.editarProduto;
+import static ferramentas.CrudCliente.encontrarCliente;
+import static ferramentas.CrudCliente.criarCliente;
+import dados.*;
+import dados.Game;
+import dados.Video;
+
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -103,8 +116,29 @@ public class FormularioVenda extends javax.swing.JFrame {
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEnviarActionPerformed
         String telefone = tfTelefone.getText();
-        Venda venda = new Venda(telefone, this.produto.getCodigo(), this.produto.getPreco(), gerarID());
+        String colecao = "";
+        //Verivica se produto e Game ou Video
+        if(this.produto instanceof Game){
+            colecao = "jogos";
+        } else if (this.produto instanceof Video) {
+            colecao = "videos";
+        }
+        //Cria Venda
+        Venda venda = new Venda(telefone, this.produto.getCodigo(), this.produto.getPreco(), gerarID(), colecao);
+        //Pega cliente
+        Cliente c = ferramentas.CrudCliente.encontrarCliente(telefone);
+        //Adiciona o produto na lista de locados do cliente
+        c.adicionarLocado(produto);;
+        //Cria venda
         criarVenda(venda);
+        //Modifica cliente no banco de dados
+        criarCliente(c);
+        //Marca produto no banco de dados como esta alugado e diminui o estoque
+        this.produto.setAlugadoStatus(true);
+        this.produto.setAlugueis(this.produto.getAlugueis() + 1);
+        this.produto.setEstoque(this.produto.getEstoque() - 1);
+        editarProduto(this.produto.getCodigo(), colecao, this.produto);
+        this.dispose();
     }//GEN-LAST:event_botaoEnviarActionPerformed
 
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
