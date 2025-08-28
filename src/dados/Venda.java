@@ -13,6 +13,7 @@ public class Venda {
     private String codigo, idCliente, idProduto, dataLocar, dataDevol, colecao;
     private LocalDate hoje;
     private LocalDate daquiTresDias;
+    private boolean foiDevolvido;
     // idCliente = telefone do Cliente que locou o produto
     // idProduto = codigo do Produto locado pelo Cliente
     // locados = ArrayList de produtos locados
@@ -34,49 +35,28 @@ public class Venda {
         this.dataDevol = daquiTresDias.format(formatter);
         this.codigo = codigo;
         this.colecao = colecao;
+        foiDevolvido = false;
     }
+
     //Getters
-
-    public long getValorTotal() {
-        return valorTotal;
-    }
-
-    public String getDataLocar() {
-        return dataLocar;
-    }
-
-    public String getDataDevol() {
-        return dataDevol;
-    }
-
+    public long getValorTotal() {return valorTotal;}
+    public String getDataLocar() {return dataLocar;}
+    public String getDataDevol() {return dataDevol;}
     public String getCodigo() { return codigo;}
-
     public String getIdCliente(){ return idCliente;}
-
     public String getIdProduto(){ return idProduto;}
     public String getColecao() { return colecao; }
+    public boolean getFoiDevolvido() { return foiDevolvido;}
 
     //Setters
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
-
-    public void setValorTotal(long valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public void setDataLocar(String dataLocar) {
-        this.dataLocar = dataLocar;
-    }
-
-    public void setColecao(String colecao) {
-        this.colecao = colecao;
-    }
-
+    public void setIdCliente(String idCliente) {this.idCliente = idCliente;}
+    public void setValorTotal(long valorTotal) {this.valorTotal = valorTotal;}
+    public void setDataLocar(String dataLocar){this.dataLocar = dataLocar;}
+    public void setColecao(String colecao) {this.colecao = colecao;}
     public void setDataDevol(String dataDevol){this.dataDevol = dataDevol;}
-
-    public void setCodigo(String codigo) { this.codigo = codigo;}
-
-    public void setProduto(String idProduto) { this.idProduto = idProduto; }
+    public void setCodigo(String codigo) {this.codigo = codigo;}
+    public void setProduto(String idProduto) {this.idProduto = idProduto; }
+    //Toggle
+    public void toggleFoiDevolvido(){this.foiDevolvido = !this.foiDevolvido;}
 }
 
