@@ -101,10 +101,11 @@ public class ListaDeDados extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         botoesCliente = new javax.swing.JPanel();
+        botaoAtualizarDados = new javax.swing.JButton();
         botaoVideo = new javax.swing.JButton();
         botaoJogo = new javax.swing.JButton();
         botaoCliente = new javax.swing.JButton();
@@ -114,6 +115,15 @@ public class ListaDeDados extends javax.swing.JPanel {
         botoesCliente.setBackground(new java.awt.Color(204, 204, 204));
         botoesCliente.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         botoesCliente.setLayout(new java.awt.GridLayout(1, 0, 5, 0));
+
+        botaoAtualizarDados.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoAtualizarDados.setText("Atualizar Dados");
+        botaoAtualizarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAtualizarDadosActionPerformed(evt);
+            }
+        });
+        botoesCliente.add(botaoAtualizarDados);
 
         botaoVideo.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         botaoVideo.setText("Video");
@@ -151,30 +161,28 @@ public class ListaDeDados extends javax.swing.JPanel {
         });
         botoesCliente.add(botaoVendas);
 
-        Container.setLayout(new CardLayout());
+        Container.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(botoesCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 730,
-                                                Short.MAX_VALUE)
-                                        .addComponent(Container, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botoesCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                    .addComponent(Container, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(botoesCliente, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Container, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botoesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Container, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoJogoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoJogoActionPerformed
@@ -196,9 +204,14 @@ public class ListaDeDados extends javax.swing.JPanel {
         CardLayout cl = (CardLayout) Container.getLayout();
         cl.show(Container, "Vendas");
     }// GEN-LAST:event_botaoVendasActionPerformed
+    
+    private void botaoAtualizarDadosActionPerformed(java.awt.event.ActionEvent evt){// GEN-FIRST:event_botaoAtualizarDadosActionPerformed
+        atualizarListas();
+    }// GEN-LAST:event_botaoAtualizarDadosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Container;
+    private javax.swing.JButton botaoAtualizarDados;
     private javax.swing.JButton botaoCliente;
     private javax.swing.JButton botaoJogo;
     private javax.swing.JButton botaoVendas;

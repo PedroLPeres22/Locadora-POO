@@ -32,7 +32,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botoesCliente" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Container" max="32767" attributes="0"/>
+              <Component id="Container" pref="24" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -57,6 +57,17 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JButton" name="botaoAtualizarDados">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Atualizar Dados"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAtualizarDadosActionPerformed"/>
+          </Events>
+        </Component>
         <Component class="javax.swing.JButton" name="botaoVideo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

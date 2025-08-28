@@ -40,6 +40,7 @@ public class VendaTela extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.venda = v;
+        devolucao.setText(v.getFoiDevolvido() ? "Sim" : "Não");
         idVenda.setText(v.getCodigo());
         codigoProduto.setText(v.getIdProduto());
         telefoneCliente.setText(v.getIdCliente());
@@ -96,13 +97,15 @@ public class VendaTela extends javax.swing.JFrame {
         dataDevolicao = new javax.swing.JLabel();
         lValor = new javax.swing.JLabel();
         valor = new javax.swing.JLabel();
+        ldevolucao = new javax.swing.JLabel();
+        devolucao = new javax.swing.JLabel();
         jBotoes = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botaoDevolucao = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Informacoes.setLayout(new java.awt.GridLayout(19, 0, 0, 3));
+        Informacoes.setLayout(new java.awt.GridLayout(21, 0, 0, 3));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel1.setText("Informações:");
@@ -162,16 +165,22 @@ public class VendaTela extends javax.swing.JFrame {
         valor.setText("info");
         Informacoes.add(valor);
 
+        ldevolucao.setText("Foi devolvido");
+        Informacoes.add(ldevolucao);
+
+        devolucao.setText("jLabel3");
+        Informacoes.add(devolucao);
+
         jBotoes.setLayout(new java.awt.GridLayout(1, 0, 5, 0));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Devolução");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoDevolucao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoDevolucao.setText("Devolução");
+        botaoDevolucao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoDevolucaoActionPerformed(evt);
             }
         });
-        jBotoes.add(jButton1);
+        jBotoes.add(botaoDevolucao);
 
         botaoExcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoExcluir.setText("Excluir");
@@ -210,7 +219,7 @@ public class VendaTela extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolucaoActionPerformed
         venda.toggleFoiDevolvido();
         Cliente c = encontrarCliente(venda.getIdCliente());
         Produto p =  encontrarProduto(venda.getIdProduto(), venda.getColecao());
@@ -227,7 +236,8 @@ public class VendaTela extends javax.swing.JFrame {
         editarVenda(venda, venda.getCodigo());
 
         JOptionPane.showMessageDialog(rootPane, "Devolução realizada com sucesso!");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_botaoDevolucaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,14 +266,15 @@ public class VendaTela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Informacoes;
+    private javax.swing.JButton botaoDevolucao;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JLabel codigoProduto;
     private javax.swing.JLabel dataDevolicao;
     private javax.swing.JLabel dataLocacao;
+    private javax.swing.JLabel devolucao;
     private javax.swing.JLabel enderecoCliente;
     private javax.swing.JLabel idVenda;
     private javax.swing.JPanel jBotoes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lCodigoProduto;
     private javax.swing.JLabel lDataDevolucao;
@@ -273,6 +284,7 @@ public class VendaTela extends javax.swing.JFrame {
     private javax.swing.JLabel lNomeProduto;
     private javax.swing.JLabel lTelefoneCliente;
     private javax.swing.JLabel lValor;
+    private javax.swing.JLabel ldevolucao;
     private javax.swing.JLabel lidVenda;
     private javax.swing.JLabel nomeCliente;
     private javax.swing.JLabel nomeProduto;

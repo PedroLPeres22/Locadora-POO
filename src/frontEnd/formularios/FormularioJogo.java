@@ -305,7 +305,7 @@ public class FormularioJogo extends javax.swing.JPanel {
         String nome = tfNome.getText();
         String desenvolvedora = tfDesenvolvedora.getText();
         String plataforma = tfPlataforma.getText();
-        String publicadora = tfPlataforma.getText();
+        String publicadora = tfPublicadora.getText();
         int preco = Integer.parseInt(jTextField1.getText());
         String classificacao = getClassificacaoSelecionada(grupoBotoesClassificacao);
 

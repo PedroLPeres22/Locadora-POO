@@ -50,7 +50,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
         <Property name="columns" type="int" value="0"/>
-        <Property name="rows" type="int" value="19"/>
+        <Property name="rows" type="int" value="21"/>
         <Property name="verticalGap" type="int" value="3"/>
       </Layout>
       <SubComponents>
@@ -152,6 +152,16 @@
             <Property name="text" type="java.lang.String" value="info"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="ldevolucao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Foi devolvido"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="devolucao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel3"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jBotoes">
@@ -162,7 +172,7 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="botaoDevolucao">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
@@ -170,7 +180,7 @@
             <Property name="text" type="java.lang.String" value="Devolu&#xe7;&#xe3;o"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoDevolucaoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="botaoExcluir">
