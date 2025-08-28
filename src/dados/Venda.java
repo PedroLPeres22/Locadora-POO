@@ -35,11 +35,6 @@ public class Venda {
         this.codigo = codigo;
     }
     //Getters
-    public String getCliente() {
-        return idCliente;
-    }
-
-    public String getProduto(){ return idProduto; }
 
     public long getValorTotal() {
         return valorTotal;

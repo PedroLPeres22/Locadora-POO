@@ -25,11 +25,12 @@ public class CrudVendas {
     public static void criarVenda(Venda venda){
         try {
             Map<String, Object> dados = new HashMap<>();
-            dados.put("cliente", venda.getIdCliente());
-            dados.put("produto", venda.getIdProduto());
+            dados.put("idCliente", venda.getIdCliente());
+            dados.put("idProduto", venda.getIdProduto());
             dados.put("valorTotal", venda.getValorTotal());
             dados.put("dataLocar", venda.getDataLocar());
             dados.put("dataDevol", venda.getDataDevol());
+            dados.put("codigo", venda.getCodigo());
             //Salva na coleção vendas
             db.collection("vendas").document(venda.getCodigo()).set(dados).get();
             JOptionPane.showMessageDialog(null, "Venda registrada com sucesso", "Registro",

@@ -50,12 +50,11 @@ public class ListaDeDados extends javax.swing.JPanel {
         tabelaJogos = new TabelaJogos();
         tabelaVideo = new TabelaVideo();
         tabelaVendas = new TabelaVendas();
-
+    
         tabelaJogos.carregarJogos(listaDeJogos);
         tabelaVideo.carregarVideo(listaDeVideos);
         tabelaCliente.carregarClientes(listaDeClientes);
         tabelaVendas.carregarVendas(listaDeVendas);
-
         
         Container.add(tabelaVendas, "Vendas");
         Container.add(tabelaCliente, "Cliente");
@@ -67,10 +66,12 @@ public class ListaDeDados extends javax.swing.JPanel {
         listaDeJogos = converteProdutoParaGame(listarProdutos("jogos"));
         listaDeVideos = converteProdutoParaVideo(listarProdutos("videos"));
         listaDeClientes = listarCliente();
-        
+        listaDeVendas = listarVendas();
+
         tabelaJogos.carregarJogos(listaDeJogos);
         tabelaVideo.carregarVideo(listaDeVideos);
         tabelaCliente.carregarClientes(listaDeClientes);
+        tabelaVendas.carregarVendas(listaDeVendas);
     }
 
     private ArrayList<Game> converteProdutoParaGame(ArrayList<Produto> produtos) {
