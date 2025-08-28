@@ -47,7 +47,8 @@ public class VendaTela extends javax.swing.JFrame {
         dataLocacao.setText(v.getDataLocar());
         dataDevolicao.setText(v.getDataDevol());
         valor.setText(Double.toString(v.getValorTotal()));
-        
+
+        //pega Cliente do banco de dados e exibe o nome e endereço
         Cliente c = encontrarCliente(v.getIdCliente());
         if (c != null) {
             nomeCliente.setText(c.getNome());
@@ -56,7 +57,7 @@ public class VendaTela extends javax.swing.JFrame {
             nomeCliente.setText("Cliente não encontrado");
             enderecoCliente.setText("Cliente não encontrado");
         }
-        
+        //pega produto do banco de dados e exibe o nome
         Produto p = encontrarProduto(v.getIdProduto(), v.getColecao());
         if (p != null) {
             nomeProduto.setText(p.getNome());

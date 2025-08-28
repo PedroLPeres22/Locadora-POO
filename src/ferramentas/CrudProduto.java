@@ -26,6 +26,7 @@ public class CrudProduto {
         try {
             Map<String, Object> dados = new HashMap<>();
             //Adiciona os atributos comuns a todos os produtos
+            dados.put("tipo", produto.getTipo());
             dados.put("nome", produto.getNome());
             dados.put("preco", produto.getPreco());
             dados.put("codigo", produto.getCodigo());
@@ -63,6 +64,7 @@ public class CrudProduto {
         try {
             Map<String, Object> dados = new HashMap<>();
             //Adiciona os atributos comuns a todos os produtos
+            dados.put("tipo", produto.getTipo());
             dados.put("nome", produto.getNome());
             dados.put("preco", produto.getPreco());
             dados.put("codigo", produto.getCodigo());
