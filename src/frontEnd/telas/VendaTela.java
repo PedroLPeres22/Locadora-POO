@@ -18,6 +18,7 @@ import static ferramentas.CrudProduto.encontrarProduto;
 import static ferramentas.CrudVendas.editarVenda;
 import static ferramentas.CrudVendas.deletarVenda;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 /**
@@ -226,9 +227,12 @@ public class VendaTela extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolucaoActionPerformed
+        //Atualiza o status da venda para devolvido
         venda.toggleFoiDevolvido();
+        //pega o cliente e o produto
         Cliente c = encontrarCliente(venda.getIdCliente());
         Produto p =  encontrarProduto(venda.getIdProduto(), venda.getColecao());
+        //atualiza o estoque do produto e a multa do cliente
         if (p != null){
             p.setEstoque(p.getEstoque() + 1);
         }
@@ -238,7 +242,14 @@ public class VendaTela extends javax.swing.JFrame {
         }
 
         editarProduto(venda.getIdProduto(), venda.getColecao(), p);
-        editarCliente(c, c.getTelefone());
+        //configura a lista de locados do cliente removendo o produto devolvido
+        ArrayList<Produto> produtosLocados = c.getLocados();
+        //remove o produto devolvido da lista de locados
+        produtosLocados.removeIf(produto -> produto.getCodigo().equals(p.getCodigo()));
+        //Atualiza a lista de locados do cliente
+        c.setLocados(produtosLocados);
+        atualizarLocados(c);
+        //atualiza a venda no banco de dados
         editarVenda(venda, venda.getCodigo());
 
         JOptionPane.showMessageDialog(rootPane, "Devolução realizada com sucesso!");
