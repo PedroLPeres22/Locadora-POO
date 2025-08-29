@@ -34,7 +34,6 @@ public class FormularioCliente extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        lTitulo = new javax.swing.JLabel();
         formularioContainer = new javax.swing.JPanel();
         lNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
@@ -46,9 +45,6 @@ public class FormularioCliente extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(450, 550));
         setPreferredSize(new java.awt.Dimension(450, 520));
-
-        lTitulo.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
-        lTitulo.setText("Formulario de cadastro de clientes");
 
         formularioContainer.setBackground(new java.awt.Color(204, 204, 204));
         formularioContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -146,20 +142,17 @@ public class FormularioCliente extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 50, Short.MAX_VALUE))
-            .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 438, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,7 +193,6 @@ public class FormularioCliente extends javax.swing.JPanel {
     private javax.swing.JLabel lEndereco;
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel lTelefone;
-    private javax.swing.JLabel lTitulo;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfTelefone;
