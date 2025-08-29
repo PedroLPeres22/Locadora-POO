@@ -16,6 +16,7 @@ import static ferramentas.CrudCliente.*;
 import static ferramentas.CrudProduto.editarProduto;
 import static ferramentas.CrudProduto.encontrarProduto;
 import static ferramentas.CrudVendas.editarVenda;
+import static ferramentas.CrudVendas.deletarVenda;
 
 import java.util.logging.Level;
 
@@ -217,7 +218,11 @@ public class VendaTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
-        
+        int resposta = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que deseja excluir esta venda?", "Confirmação", JOptionPane.YES_NO_OPTION);
+        if (resposta != JOptionPane.YES_OPTION) {
+            return; // Sai se o usuário não confirmar
+        }
+        deletarVenda(venda.getCodigo());
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolucaoActionPerformed

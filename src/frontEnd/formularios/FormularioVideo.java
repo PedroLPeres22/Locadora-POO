@@ -11,6 +11,8 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
+import static ferramentas.VerificarDados.estaVazio;
+
 import dados.Video;
 
 /**
@@ -351,9 +353,11 @@ public class FormularioVideo extends javax.swing.JPanel {
         int duracao = Integer.parseInt(tfDuracao.getText());
         int preco = Integer.parseInt(tfPreco.getText());
         String classificaco = tfClassificacao.getSelectedItem().toString();
+        int estoque = Integer.parseInt(tfEstoque.getText());
         // verifica se os campos obrigatórios estão preenchidos
-        if (nome.isEmpty() || estudio.isEmpty() || distribuidora.isEmpty() || formato.isEmpty() || tipoMidia.isEmpty()
-                || classificaco == null) {
+        if (estaVazio(nome) == false || estaVazio(estudio) == false || estaVazio(distribuidora) == false
+                || estaVazio(tfDuracao.getText()) == false || estaVazio(tfPreco.getText()) == false
+                || estaVazio(tfEstoque.getText()) == false) {
             JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos obrigatórios.", "Erro",
                     JOptionPane.ERROR_MESSAGE);
             return;
@@ -370,7 +374,7 @@ public class FormularioVideo extends javax.swing.JPanel {
                 duracao,
                 false, // está alugado
                 0, // alugueis
-                1 // estoque (pode ser inicializado com 1 cópia)
+                estoque // estoque (pode ser inicializado com 1 cópia)
                 , preco
         );
 

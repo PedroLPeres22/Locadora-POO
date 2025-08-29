@@ -7,6 +7,8 @@ package frontEnd.formularios;
 import dados.Cliente;
 import ferramentas.CrudCliente;
 
+import static ferramentas.VerificarDados.*;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -170,10 +172,23 @@ public class FormularioCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_tfEnderecoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Pega os dados dos campos
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
         String endereco = tfEndereco.getText();
+
+        if (estaVazio(nome) == false || estaVazio(telefone) == false || estaVazio(endereco) == false) {
+            JOptionPane.showMessageDialog(formularioContainer, "Preencha todos os campos");
+            return;
+            
+        }
+        if (verifTel(telefone) == false) {
+            JOptionPane.showMessageDialog(formularioContainer, "Telefone inválido. Use o formato (XX)XXXXX-XXXX");
+            return;
+        }
+        //Cria o usuario
         Cliente cliente = new Cliente(nome, endereco, telefone);
+        //Salva o usuario
         CrudCliente.criarCliente(cliente);
         //JOptionPane.showMessageDialog(formularioContainer, "usuario " + nome + " criado");
     }//GEN-LAST:event_jButton1ActionPerformed

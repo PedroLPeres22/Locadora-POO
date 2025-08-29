@@ -12,7 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
-import static ferramentas.VerificarDados.verifTel;
+import static ferramentas.VerificarDados.estaVazio;
 
 import dados.Game;
 
@@ -285,8 +285,9 @@ public class FormularioJogo extends javax.swing.JPanel {
         int estoque = Integer.parseInt(tfEstoque.getText());
 
         // Verifica se os campos estão vazios
-        if (nome.isEmpty() || desenvolvedora.isEmpty() || plataforma.isEmpty()
-                || publicadora.isEmpty() || classificacao == null) {
+        if (estaVazio(nome) == false || estaVazio(desenvolvedora) == false || estaVazio(plataforma) == false
+                || estaVazio(publicadora) == false || estaVazio(tfPreco.getText()) == false
+                || estaVazio(tfEstoque.getText()) == false || estaVazio(classificacao) == false) {
             JOptionPane.showMessageDialog(fomularioContainer, "Por favor, preencha todos os campos.");
             return;
         }
@@ -313,7 +314,7 @@ public class FormularioJogo extends javax.swing.JPanel {
                 plataforma,
                 false, // está alugado
                 0, // alugueis
-                1, // estoque (pode ser inicializado com 1 cópia)
+                estoque, // estoque (pode ser inicializado com 1 cópia)
                 preco);
 
         // Salva o jogo no banco de dados

@@ -9,12 +9,15 @@ import dados.Venda;
 import static ferramentas.GeradorID.gerarID;
 import static ferramentas.CrudVendas.criarVenda;
 import static ferramentas.VerificarDados.estaVazio;
+import static ferramentas.VerificarDados.verifTel;
 
 import java.util.ArrayList;
 
 import static ferramentas.CrudProduto.editarProduto;
 import static ferramentas.CrudCliente.encontrarCliente;
 import static ferramentas.CrudCliente.criarCliente;
+import static ferramentas.CrudCliente.editarCliente;
+
 import dados.*;
 import dados.Game;
 import dados.Video;
@@ -123,6 +126,17 @@ public class FormularioVenda extends javax.swing.JFrame {
         } else if (this.produto instanceof Video) {
             colecao = "videos";
         }
+        //Verifica se o telefone está no formato correto
+        if(estaVazio(telefone) == false){
+            JOptionPane.showMessageDialog(this, "Por favor, preencha o campo telefone.", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(verifTel(telefone) == false){
+            JOptionPane.showMessageDialog(this, "Telefone inválido. Use o formato (XX)XXXXX-XXXX", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         //Cria Venda
         Venda venda = new Venda(telefone, this.produto.getCodigo(), this.produto.getPreco(), gerarID(), colecao);
         //Pega cliente
@@ -132,7 +146,7 @@ public class FormularioVenda extends javax.swing.JFrame {
         //Cria venda
         criarVenda(venda);
         //Modifica cliente no banco de dados
-        criarCliente(c);
+        editarCliente(c, telefone);;
         //Marca produto no banco de dados como esta alugado e diminui o estoque
         this.produto.setAlugadoStatus(true);
         this.produto.setAlugueis(this.produto.getAlugueis() + 1);
