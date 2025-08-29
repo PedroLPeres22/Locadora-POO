@@ -78,7 +78,7 @@ public class FormularioVideo extends javax.swing.JPanel {
         formularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfNome.setToolTipText("Digite o nome do jogo");
+        tfNome.setToolTipText("Digite o nome do Filme");
         tfNome.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
