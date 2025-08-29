@@ -36,7 +36,7 @@ public class TabelaVendas extends javax.swing.JPanel {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][] {},
                 new String[] { "ID", "Telefone do cliente", "ID do produto", "Data da locação",
-                        "Data limite de devolição", "Valor da venda" }) {
+                        "Data limite de devolução", "Valor da venda" }) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false; // impede edição por clique/duplo-clique
