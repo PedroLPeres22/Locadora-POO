@@ -25,6 +25,7 @@ public class Cliente {
 
     // Construtor vazio necessário para o Firestore
     public Cliente() {
+        this.locados = new ArrayList<>();
     }
     
     //Getters
@@ -72,6 +73,9 @@ public class Cliente {
     }
 
     public void adicionarLocado(Produto p){
+        if (this.locados == null) {
+            this.locados = new ArrayList<>();
+        }
         this.locados.add(p);
     }
 

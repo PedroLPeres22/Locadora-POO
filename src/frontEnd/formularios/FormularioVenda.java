@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import static ferramentas.CrudProduto.editarProduto;
 import static ferramentas.CrudCliente.encontrarCliente;
+import static ferramentas.CrudCliente.atualizarLocados;
 import static ferramentas.CrudCliente.criarCliente;
 import static ferramentas.CrudCliente.editarCliente;
 
@@ -142,7 +143,8 @@ public class FormularioVenda extends javax.swing.JFrame {
         //Pega cliente
         Cliente c = ferramentas.CrudCliente.encontrarCliente(telefone);
         //Adiciona o produto na lista de locados do cliente
-        c.adicionarLocado(produto);;
+        c.adicionarLocado(produto);
+        atualizarLocados(c);
         //Cria venda
         criarVenda(venda);
         //Modifica cliente no banco de dados
