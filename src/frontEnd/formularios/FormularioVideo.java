@@ -4,6 +4,7 @@
  */
 package frontEnd.formularios;
 
+import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
@@ -36,9 +37,6 @@ public class FormularioVideo extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        grupoClassificacao = new javax.swing.ButtonGroup();
-        lTitulo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         formularioContainer = new javax.swing.JPanel();
         lNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
@@ -47,31 +45,24 @@ public class FormularioVideo extends javax.swing.JPanel {
         lDistribuidora = new javax.swing.JLabel();
         tfDistribuidora = new javax.swing.JTextField();
         lFormato = new javax.swing.JLabel();
-        tfFormato = new javax.swing.JTextField();
         lTipoMidia = new javax.swing.JLabel();
-        tfTipoMidia = new javax.swing.JTextField();
         lDuraco = new javax.swing.JLabel();
         tfDuracao = new javax.swing.JTextField();
         lPreco = new javax.swing.JLabel();
         tfPreco = new javax.swing.JTextField();
         lClassificacao = new javax.swing.JLabel();
-        jrbLivre = new javax.swing.JRadioButton();
-        jrb10 = new javax.swing.JRadioButton();
-        jrb12 = new javax.swing.JRadioButton();
-        jrb14 = new javax.swing.JRadioButton();
-        jrb16 = new javax.swing.JRadioButton();
-        jrb18 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        botaoEnviar = new javax.swing.JButton();
+        tfEstoque = new javax.swing.JTextField();
         lEstoque = new javax.swing.JLabel();
+        tfFormato = new javax.swing.JComboBox<>();
+        tfTipoMidia = new javax.swing.JComboBox<>();
+        tfClassificacao = new javax.swing.JComboBox<>();
 
         setMinimumSize(new java.awt.Dimension(500, 650));
         setPreferredSize(new java.awt.Dimension(500, 650));
 
-        lTitulo.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
-        lTitulo.setText("Formulario Cadastro de video");
-
         formularioContainer.setBackground(new java.awt.Color(204, 204, 204));
+        formularioContainer.setMaximumSize(new java.awt.Dimension(500, 32767));
         formularioContainer.setLayout(new java.awt.GridBagLayout());
 
         lNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -81,18 +72,19 @@ public class FormularioVideo extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(30, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 6, 0, 0);
         formularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfNome.setToolTipText("Digite o nome do jogo");
+        tfNome.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 53;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         formularioContainer.add(tfNome, gridBagConstraints);
 
         lEstudio.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -100,13 +92,14 @@ public class FormularioVideo extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         formularioContainer.add(lEstudio, gridBagConstraints);
 
         tfEstudio.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfEstudio.setToolTipText("Digite a desenvolvedora do jogo");
+        tfEstudio.setToolTipText("Digite o nome do estudio");
+        tfEstudio.setPreferredSize(new java.awt.Dimension(400, 27));
         tfEstudio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEstudioActionPerformed(evt);
@@ -115,10 +108,10 @@ public class FormularioVideo extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 53;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         formularioContainer.add(tfEstudio, gridBagConstraints);
 
         lDistribuidora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -126,103 +119,84 @@ public class FormularioVideo extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         formularioContainer.add(lDistribuidora, gridBagConstraints);
 
         tfDistribuidora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfDistribuidora.setToolTipText("Digite o nome da publicadora");
+        tfDistribuidora.setToolTipText("Digite o nome da distribuidora");
+        tfDistribuidora.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 53;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         formularioContainer.add(tfDistribuidora, gridBagConstraints);
 
         lFormato.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lFormato.setText("Formato");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
-        formularioContainer.add(lFormato, gridBagConstraints);
-
-        tfFormato.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfFormato.setToolTipText("Digite o nome da plataforma do jogo");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 53;
-        gridBagConstraints.ipadx = 412;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        formularioContainer.add(tfFormato, gridBagConstraints);
+        formularioContainer.add(lFormato, gridBagConstraints);
 
         lTipoMidia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lTipoMidia.setText("Tipo de midia");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 15;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
         formularioContainer.add(lTipoMidia, gridBagConstraints);
-
-        tfTipoMidia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfTipoMidia.setToolTipText("preço");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 53;
-        gridBagConstraints.ipadx = 412;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        formularioContainer.add(tfTipoMidia, gridBagConstraints);
 
         lDuraco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lDuraco.setText("Duração");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         formularioContainer.add(lDuraco, gridBagConstraints);
 
         tfDuracao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfDuracao.setToolTipText("preço");
+        tfDuracao.setToolTipText("digite a duração");
+        tfDuracao.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 53;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         formularioContainer.add(tfDuracao, gridBagConstraints);
 
         lPreco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lPreco.setText("Preço");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         formularioContainer.add(lPreco, gridBagConstraints);
 
         tfPreco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfPreco.setToolTipText("preço");
+        tfPreco.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 53;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 10;
         gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
         formularioContainer.add(tfPreco, gridBagConstraints);
 
         lClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
@@ -230,121 +204,104 @@ public class FormularioVideo extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridwidth = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(27, 6, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 0);
         formularioContainer.add(lClassificacao, gridBagConstraints);
 
-        grupoClassificacao.add(jrbLivre);
-        jrbLivre.setLabel("livre");
-        jrbLivre.addActionListener(new java.awt.event.ActionListener() {
+        botaoEnviar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        botaoEnviar.setText("Enviar");
+        botaoEnviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbLivreActionPerformed(evt);
+                botaoEnviarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        formularioContainer.add(jrbLivre, gridBagConstraints);
-
-        grupoClassificacao.add(jrb10);
-        jrb10.setLabel("10");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
-        formularioContainer.add(jrb10, gridBagConstraints);
-
-        grupoClassificacao.add(jrb12);
-        jrb12.setLabel("12");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 23;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        formularioContainer.add(jrb12, gridBagConstraints);
-
-        grupoClassificacao.add(jrb14);
-        jrb14.setLabel("14");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 24;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.gridwidth = 26;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
-        formularioContainer.add(jrb14, gridBagConstraints);
-
-        grupoClassificacao.add(jrb16);
-        jrb16.setLabel("16");
-        jrb16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrb16ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 50;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
-        formularioContainer.add(jrb16, gridBagConstraints);
-
-        grupoClassificacao.add(jrb18);
-        jrb18.setLabel("18");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 51;
-        gridBagConstraints.gridy = 17;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 12, 0, 0);
-        formularioContainer.add(jrb18, gridBagConstraints);
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 50;
         gridBagConstraints.gridy = 18;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 404;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 24, 6, 0);
-        formularioContainer.add(jButton1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 6, 6);
+        formularioContainer.add(botaoEnviar, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField2.setToolTipText("Digite a quantidade do item no estoque");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfEstoque.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfEstoque.setToolTipText("Digite a quantidade do item no estoque");
+        tfEstoque.setPreferredSize(new java.awt.Dimension(400, 27));
+        tfEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfEstoqueActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 54;
-        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 412;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
-        formularioContainer.add(jTextField2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 6);
+        formularioContainer.add(tfEstoque, gridBagConstraints);
 
         lEstoque.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lEstoque.setText("Estoque");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.ipady = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 0, 0);
         formularioContainer.add(lEstoque, gridBagConstraints);
 
-        jScrollPane1.setViewportView(formularioContainer);
+        tfFormato.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfFormato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DVD", "Blu-Ray", "CD" }));
+        tfFormato.setToolTipText("Escolha o formato ");
+        tfFormato.setPreferredSize(new java.awt.Dimension(400, 27));
+        tfFormato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfFormatoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 385;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 6, 0, 6);
+        formularioContainer.add(tfFormato, gridBagConstraints);
+
+        tfTipoMidia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfTipoMidia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filme", "Série", "Coletânea" }));
+        tfTipoMidia.setToolTipText("Escolha o tipo de midia");
+        tfTipoMidia.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 15;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 369;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 6);
+        formularioContainer.add(tfTipoMidia, gridBagConstraints);
+
+        tfClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfClassificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Livre", "10", "12", "14", "16", "18" }));
+        tfClassificacao.setToolTipText("Escolha a classificação indicativa");
+        tfClassificacao.setPreferredSize(new java.awt.Dimension(400, 27));
+        tfClassificacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfClassificacaoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 17;
+        gridBagConstraints.gridwidth = 10;
+        gridBagConstraints.ipadx = 404;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 6, 0, 6);
+        formularioContainer.add(tfClassificacao, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -352,54 +309,48 @@ public class FormularioVideo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lTitulo)
-                .addContainerGap(208, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
-                    .addContainerGap()))
+                .addComponent(formularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lTitulo)
-                .addContainerGap(661, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(47, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(7, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(formularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    protected void tfEstudioActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfEstudioActionPerformed'");
+    }
 
-    private void jrb16ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jrb16ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jrb16ActionPerformed
+    protected void tfEstoqueActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfEstoqueActionPerformed'");
+    }
 
-    private void jrbLivreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jrbLivreActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jrbLivreActionPerformed
+    protected void tfClassificacaoActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfClassificacaoActionPerformed'");
+    }
 
-    private void tfEstudioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfEstudioActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_tfEstudioActionPerformed
+    protected void tfFormatoActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfFormatoActionPerformed'");
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+    private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // Pega os dados dos campos
         String nome = tfNome.getText();
         String estudio = tfEstudio.getText();
         String distribuidora = tfDistribuidora.getText();
-        String formato = tfFormato.getText();
-        String tipoMidia = tfTipoMidia.getText();
+        String formato = tfFormato.getSelectedItem().toString();
+        String tipoMidia = tfTipoMidia.getSelectedItem().toString();
         int duracao = Integer.parseInt(tfDuracao.getText());
         int preco = Integer.parseInt(tfPreco.getText());
-        String classificaco = getClassificacaoSelecionada(grupoClassificacao);
+        String classificaco = tfClassificacao.getSelectedItem().toString();
         // verifica se os campos obrigatórios estão preenchidos
         if (nome.isEmpty() || estudio.isEmpty() || distribuidora.isEmpty() || formato.isEmpty() || tipoMidia.isEmpty()
                 || classificaco == null) {
@@ -425,31 +376,22 @@ public class FormularioVideo extends javax.swing.JPanel {
 
         //Salva o objeto Video no banco de dados
         ferramentas.CrudProduto.criarProduto(video, "videos");
+        // Limpa os campos do formulário
+        tfNome.setText("");
+        tfEstudio.setText("");
+        tfDistribuidora.setText("");
+        tfDuracao.setText("");
+        tfPreco.setText("");
+        tfEstoque.setText("");
+        tfFormato.setSelectedIndex(0);
+        tfTipoMidia.setSelectedIndex(0);
+        tfClassificacao.setSelectedIndex(0);
     }// GEN-LAST:event_jButton1ActionPerformed
 
-    private String getClassificacaoSelecionada(ButtonGroup g) {
-        for (Enumeration<AbstractButton> buttons = g.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-
-            if (button.isSelected()) {
-                return button.getText();
-            }
-        }
-        return null;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoEnviar;
     private javax.swing.JPanel formularioContainer;
-    private javax.swing.ButtonGroup grupoClassificacao;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JRadioButton jrb10;
-    private javax.swing.JRadioButton jrb12;
-    private javax.swing.JRadioButton jrb14;
-    private javax.swing.JRadioButton jrb16;
-    private javax.swing.JRadioButton jrb18;
-    private javax.swing.JRadioButton jrbLivre;
     private javax.swing.JLabel lClassificacao;
     private javax.swing.JLabel lDistribuidora;
     private javax.swing.JLabel lDuraco;
@@ -459,13 +401,14 @@ public class FormularioVideo extends javax.swing.JPanel {
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel lPreco;
     private javax.swing.JLabel lTipoMidia;
-    private javax.swing.JLabel lTitulo;
+    private javax.swing.JComboBox<String> tfClassificacao;
     private javax.swing.JTextField tfDistribuidora;
     private javax.swing.JTextField tfDuracao;
+    private javax.swing.JTextField tfEstoque;
     private javax.swing.JTextField tfEstudio;
-    private javax.swing.JTextField tfFormato;
+    private javax.swing.JComboBox<String> tfFormato;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfPreco;
-    private javax.swing.JTextField tfTipoMidia;
+    private javax.swing.JComboBox<String> tfTipoMidia;
     // End of variables declaration//GEN-END:variables
 }

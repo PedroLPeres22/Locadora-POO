@@ -4,12 +4,15 @@
  */
 package frontEnd.formularios;
 
+import java.awt.event.ActionEvent;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
+
+import static ferramentas.VerificarDados.verifTel;
 
 import dados.Game;
 
@@ -35,9 +38,8 @@ public class FormularioJogo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        grupoBotoesClassificacao = new javax.swing.ButtonGroup();
-        lTitulo = new javax.swing.JLabel();
         fomularioContainer = new javax.swing.JPanel();
         lNome = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
@@ -46,91 +48,125 @@ public class FormularioJogo extends javax.swing.JPanel {
         lPublicadora = new javax.swing.JLabel();
         tfPublicadora = new javax.swing.JTextField();
         lPlataforma = new javax.swing.JLabel();
-        tfPlataforma = new javax.swing.JTextField();
         lEstoque = new javax.swing.JLabel();
         lClassificacao = new javax.swing.JLabel();
-        jrbLivre = new javax.swing.JRadioButton();
-        jrb12 = new javax.swing.JRadioButton();
-        jrb16 = new javax.swing.JRadioButton();
-        jrb10 = new javax.swing.JRadioButton();
-        jrb14 = new javax.swing.JRadioButton();
-        jrb18 = new javax.swing.JRadioButton();
         botaoEnviar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tfPreco = new javax.swing.JTextField();
+        tfEstoque = new javax.swing.JTextField();
+        tfPlataforma = new javax.swing.JComboBox<>();
+        tfClassificacao = new javax.swing.JComboBox<>();
 
+        setMaximumSize(new java.awt.Dimension(500, 32767));
         setMinimumSize(new java.awt.Dimension(500, 600));
         setPreferredSize(new java.awt.Dimension(500, 600));
 
-        lTitulo.setFont(new java.awt.Font("Segoe UI", 0, 25)); // NOI18N
-        lTitulo.setText("Fomulario cadastro de jogos");
-
         fomularioContainer.setBackground(new java.awt.Color(204, 204, 204));
         fomularioContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        fomularioContainer.setLayout(new java.awt.GridBagLayout());
 
         lNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lNome.setText("Nome do jogo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(36, 11, 0, 0);
+        fomularioContainer.add(lNome, gridBagConstraints);
 
         tfNome.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfNome.setToolTipText("Digite o nome do jogo");
+        tfNome.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 11, 0, 11);
+        fomularioContainer.add(tfNome, gridBagConstraints);
 
         lDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lDesenvolvedora.setText("Desenvolvedora");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(lDesenvolvedora, gridBagConstraints);
 
         tfDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfDesenvolvedora.setToolTipText("Digite a desenvolvedora do jogo");
+        tfDesenvolvedora.setPreferredSize(new java.awt.Dimension(400, 27));
         tfDesenvolvedora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfDesenvolvedoraActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfDesenvolvedora, gridBagConstraints);
 
         lPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lPublicadora.setText("Publicadora");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(lPublicadora, gridBagConstraints);
 
         tfPublicadora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfPublicadora.setToolTipText("Digite o nome da publicadora");
+        tfPublicadora.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfPublicadora, gridBagConstraints);
 
         lPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lPlataforma.setText("Plataforma");
-
-        tfPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfPlataforma.setToolTipText("Digite o nome da plataforma do jogo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        fomularioContainer.add(lPlataforma, gridBagConstraints);
 
         lEstoque.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lEstoque.setText("Estoque");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipady = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        fomularioContainer.add(lEstoque, gridBagConstraints);
 
         lClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lClassificacao.setText("Classificação indicativa");
-
-        grupoBotoesClassificacao.add(jrbLivre);
-        jrbLivre.setLabel("livre");
-        jrbLivre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbLivreActionPerformed(evt);
-            }
-        });
-
-        grupoBotoesClassificacao.add(jrb12);
-        jrb12.setLabel("12");
-
-        grupoBotoesClassificacao.add(jrb16);
-        jrb16.setLabel("16");
-        jrb16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrb16ActionPerformed(evt);
-            }
-        });
-
-        grupoBotoesClassificacao.add(jrb10);
-        jrb10.setLabel("10");
-
-        grupoBotoesClassificacao.add(jrb14);
-        jrb14.setLabel("14");
-
-        grupoBotoesClassificacao.add(jrb18);
-        jrb18.setLabel("18");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.ipadx = -6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 0);
+        fomularioContainer.add(lClassificacao, gridBagConstraints);
 
         botaoEnviar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         botaoEnviar.setText("Enviar");
@@ -139,175 +175,114 @@ public class FormularioJogo extends javax.swing.JPanel {
                 botaoEnviarActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 410;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(66, 11, 11, 11);
+        fomularioContainer.add(botaoEnviar, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel1.setText("Preço");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 0);
+        fomularioContainer.add(jLabel1, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField1.setToolTipText("preço");
+        tfPreco.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfPreco.setToolTipText("preço");
+        tfPreco.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfPreco, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jTextField2.setToolTipText("Digite a quantidade do item no estoque");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfEstoque.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfEstoque.setToolTipText("Digite a quantidade do item no estoque");
+        tfEstoque.setPreferredSize(new java.awt.Dimension(400, 27));
+        tfEstoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfEstoqueActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 418;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 11, 0, 11);
+        fomularioContainer.add(tfEstoque, gridBagConstraints);
 
-        javax.swing.GroupLayout fomularioContainerLayout = new javax.swing.GroupLayout(fomularioContainer);
-        fomularioContainer.setLayout(fomularioContainerLayout);
-        fomularioContainerLayout.setHorizontalGroup(
-            fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lNome))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lDesenvolvedora))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(tfDesenvolvedora, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lPublicadora))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(tfPublicadora, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lPlataforma))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(tfPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel1))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lClassificacao)
-                            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                                .addComponent(jrbLivre)
-                                .addGap(12, 12, 12)
-                                .addComponent(jrb10)
-                                .addGap(6, 6, 6)
-                                .addComponent(jrb12)
-                                .addGap(16, 16, 16)
-                                .addComponent(jrb14)
-                                .addGap(12, 12, 12)
-                                .addComponent(jrb16)
-                                .addGap(12, 12, 12)
-                                .addComponent(jrb18))
-                            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                                .addGap(211, 211, 211)
-                                .addComponent(botaoEnviar))))
-                    .addGroup(fomularioContainerLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lEstoque)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField2)
-                .addContainerGap())
-        );
-        fomularioContainerLayout.setVerticalGroup(
-            fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fomularioContainerLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(lNome)
-                .addGap(38, 38, 38)
-                .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(lDesenvolvedora)
-                .addGap(6, 6, 6)
-                .addComponent(tfDesenvolvedora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(lPublicadora)
-                .addGap(6, 6, 6)
-                .addComponent(tfPublicadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(lPlataforma)
-                .addGap(6, 6, 6)
-                .addComponent(tfPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(lClassificacao)
-                .addGap(6, 6, 6)
-                .addGroup(fomularioContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jrbLivre)
-                    .addComponent(jrb10)
-                    .addComponent(jrb12)
-                    .addComponent(jrb14)
-                    .addComponent(jrb16)
-                    .addComponent(jrb18))
-                .addGap(18, 18, 18)
-                .addComponent(botaoEnviar)
-                .addContainerGap())
-        );
+        tfPlataforma.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfPlataforma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Console", "PC" }));
+        tfPlataforma.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 389;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 11, 0, 11);
+        fomularioContainer.add(tfPlataforma, gridBagConstraints);
+
+        tfClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        tfClassificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Livre", "10", "12", "14", "16", "18" }));
+        tfClassificacao.setPreferredSize(new java.awt.Dimension(400, 27));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.ipadx = 410;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 11);
+        fomularioContainer.add(tfClassificacao, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lTitulo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    protected void tfDesenvolvedoraActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfDesenvolvedoraActionPerformed'");
+    }
 
-    private void tfDesenvolvedoraActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_tfDesenvolvedoraActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_tfDesenvolvedoraActionPerformed
-
-    private void jrbLivreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jrbLivreActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jrbLivreActionPerformed
-
-    private void jrb16ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jrb16ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_jrb16ActionPerformed
+    protected void tfEstoqueActionPerformed(ActionEvent evt) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'tfEstoqueActionPerformed'");
+    }
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
         // Pega os dados dos campos
         String nome = tfNome.getText();
         String desenvolvedora = tfDesenvolvedora.getText();
-        String plataforma = tfPlataforma.getText();
+        String plataforma = tfPlataforma.getSelectedItem().toString();
         String publicadora = tfPublicadora.getText();
-        int preco = Integer.parseInt(jTextField1.getText());
-        String classificacao = getClassificacaoSelecionada(grupoBotoesClassificacao);
+        int preco = Integer.parseInt(tfPreco.getText());
+        String classificacao = tfClassificacao.getSelectedItem().toString();
+        int estoque = Integer.parseInt(tfEstoque.getText());
 
         // Verifica se os campos estão vazios
         if (nome.isEmpty() || desenvolvedora.isEmpty() || plataforma.isEmpty()
@@ -316,6 +291,18 @@ public class FormularioJogo extends javax.swing.JPanel {
             return;
         }
 
+        // Verifica se o preço é um número válido
+        if (preco < 0) {
+            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um preço válido.");
+            return;
+        }
+
+        //verifica se o estoque é um número válido
+        if (estoque < 0) {
+            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um estoque válido.");
+            return;
+        }
+        
         // Cria o objeto Jogo
         Game jogo = new Game(
                 nome,
@@ -332,7 +319,14 @@ public class FormularioJogo extends javax.swing.JPanel {
         // Salva o jogo no banco de dados
         ferramentas.CrudProduto.criarProduto(jogo, "jogos");
 
-        JOptionPane.showMessageDialog(fomularioContainer, "Jogo " + nome + " Criado");
+        // Limpa os campos do formulário
+        tfNome.setText("");
+        tfDesenvolvedora.setText("");
+        tfPublicadora.setText("");
+        tfPreco.setText("");
+        tfEstoque.setText("");
+        tfPlataforma.setSelectedIndex(0);
+        tfClassificacao.setSelectedIndex(0);
     }// GEN-LAST:event_botaoEnviarActionPerformed
 
     private String getClassificacaoSelecionada(ButtonGroup g) {
@@ -349,26 +343,19 @@ public class FormularioJogo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEnviar;
     private javax.swing.JPanel fomularioContainer;
-    private javax.swing.ButtonGroup grupoBotoesClassificacao;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JRadioButton jrb10;
-    private javax.swing.JRadioButton jrb12;
-    private javax.swing.JRadioButton jrb14;
-    private javax.swing.JRadioButton jrb16;
-    private javax.swing.JRadioButton jrb18;
-    private javax.swing.JRadioButton jrbLivre;
     private javax.swing.JLabel lClassificacao;
     private javax.swing.JLabel lDesenvolvedora;
     private javax.swing.JLabel lEstoque;
     private javax.swing.JLabel lNome;
     private javax.swing.JLabel lPlataforma;
     private javax.swing.JLabel lPublicadora;
-    private javax.swing.JLabel lTitulo;
+    private javax.swing.JComboBox<String> tfClassificacao;
     private javax.swing.JTextField tfDesenvolvedora;
+    private javax.swing.JTextField tfEstoque;
     private javax.swing.JTextField tfNome;
-    private javax.swing.JTextField tfPlataforma;
+    private javax.swing.JComboBox<String> tfPlataforma;
+    private javax.swing.JTextField tfPreco;
     private javax.swing.JTextField tfPublicadora;
     // End of variables declaration//GEN-END:variables
 }

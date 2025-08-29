@@ -42,7 +42,7 @@ public class CadastrarProdutos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jFormulario = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(700, 700));
+        setPreferredSize(new java.awt.Dimension(700, 800));
 
         jBotoes.setBackground(new java.awt.Color(204, 204, 204));
         jBotoes.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -65,6 +65,8 @@ public class CadastrarProdutos extends javax.swing.JPanel {
             }
         });
         jBotoes.add(botaoJogo);
+
+        jScrollPane1.setBorder(null);
 
         jFormulario.setLayout(new java.awt.CardLayout());
         jScrollPane1.setViewportView(jFormulario);

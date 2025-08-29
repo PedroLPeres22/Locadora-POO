@@ -53,7 +53,7 @@ public class App extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(850, 700));
-        setPreferredSize(new java.awt.Dimension(850, 700));
+        setPreferredSize(new java.awt.Dimension(850, 760));
 
         menu.setBackground(new java.awt.Color(204, 204, 204));
         menu.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
