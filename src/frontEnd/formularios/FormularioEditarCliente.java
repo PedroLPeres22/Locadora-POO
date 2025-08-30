@@ -146,7 +146,7 @@ public class FormularioEditarCliente extends javax.swing.JFrame {
         this.cliente.setEndereco(tfEndereco.getText());
         editarCliente(this.cliente, this.cliente.getTelefone());
 
-        JOptionPane.showMessageDialog(formularioContainer, "usuario " + this.cliente.getNome() + " editado Atualize os dados");
+        JOptionPane.showMessageDialog(formularioContainer, "usuario " + this.cliente.getNome() + " editado");
         if (callback != null) {
             callback.run(); // avisa a tela ClienteTela para atualizar
         }

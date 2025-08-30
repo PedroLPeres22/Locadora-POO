@@ -280,7 +280,7 @@ public class FormularioEditarJogo extends javax.swing.JFrame {
         this.game.setClassInd((String) tfClassificacao.getSelectedItem());
         // Salva o usuario
         editarProduto(this.game.getCodigo(), "jogos", this.game);
-        JOptionPane.showMessageDialog(fomularioContainer, "jogo " + this.game.getNome() + " editado atualize os dados");
+        JOptionPane.showMessageDialog(fomularioContainer, "jogo " + this.game.getNome() + " editado");
         if (callback != null) {
             callback.run(); // avisa a tela para atualizar
         }

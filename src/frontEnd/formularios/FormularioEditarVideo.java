@@ -337,7 +337,7 @@ public class FormularioEditarVideo extends javax.swing.JFrame {
 
         editarProduto(this.video.getCodigo(), "videos", this.video);
         JOptionPane.showMessageDialog(formularioContainer,
-                "Video " + this.video.getNome() + " editado atualize os dados");
+                "Video " + this.video.getNome() + " editado");
         if (callback != null) {
             callback.run(); // avisa a tela para atualizar
         }
