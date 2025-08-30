@@ -281,9 +281,7 @@ public class FormularioJogo extends javax.swing.JPanel {
         String desenvolvedora = tfDesenvolvedora.getText();
         String plataforma = tfPlataforma.getSelectedItem().toString();
         String publicadora = tfPublicadora.getText();
-        int preco = Integer.parseInt(tfPreco.getText());
         String classificacao = tfClassificacao.getSelectedItem().toString();
-        int estoque = Integer.parseInt(tfEstoque.getText());
 
         // Verifica se os campos estão vazios
         if (estaVazio(nome) == false || estaVazio(desenvolvedora) == false || estaVazio(plataforma) == false
@@ -299,6 +297,8 @@ public class FormularioJogo extends javax.swing.JPanel {
                     "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        int preco = Integer.parseInt(tfPreco.getText());
+        int estoque = Integer.parseInt(tfEstoque.getText());
         
         // Cria o objeto Jogo
         Game jogo = new Game(

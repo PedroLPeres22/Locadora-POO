@@ -352,10 +352,8 @@ public class FormularioVideo extends javax.swing.JPanel {
         String distribuidora = tfDistribuidora.getText();
         String formato = tfFormato.getSelectedItem().toString();
         String tipoMidia = tfTipoMidia.getSelectedItem().toString();
-        int duracao = Integer.parseInt(tfDuracao.getText());
-        int preco = Integer.parseInt(tfPreco.getText());
         String classificaco = tfClassificacao.getSelectedItem().toString();
-        int estoque = Integer.parseInt(tfEstoque.getText());
+        
         // verifica se os campos obrigatórios estão preenchidos
         if (estaVazio(nome) == false || estaVazio(estudio) == false || estaVazio(distribuidora) == false
                 || estaVazio(tfDuracao.getText()) == false || estaVazio(tfPreco.getText()) == false
@@ -371,6 +369,10 @@ public class FormularioVideo extends javax.swing.JPanel {
                     "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        int estoque = Integer.parseInt(tfEstoque.getText());
+        int duracao = Integer.parseInt(tfDuracao.getText());
+        int preco = Integer.parseInt(tfPreco.getText());
         
         // Cria o objeto Video
         Video video = new Video(
