@@ -1,0 +1,6 @@
+Pacote responsavel por gerar a interface grafica do projeto
+
+App.java: responsavel por gerar a interface do aplicativo apenas ele e chamado em Main.
+telas: pacote responsavel por gerar as telas do projeto.
+tabelas: pacote responsavel por gerar as tabelas do projeto.
+formularios: pacote responsavel por gerar os formularios do projeto.

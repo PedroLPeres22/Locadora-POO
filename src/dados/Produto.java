@@ -1,3 +1,8 @@
+//Autores
+//PEDRO LEONARDO S. DA S. DE O. PERES 
+//LORENZO DE OLIVEIRA E SILVA 
+//GABRIEL EVANGELISTA BERTOLINO DOS SANTOS
+
 package dados;
 
 //Classe que define características gerais dos produtos sendo locados

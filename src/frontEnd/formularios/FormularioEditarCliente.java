@@ -1,3 +1,8 @@
+//Autores
+//PEDRO LEONARDO S. DA S. DE O. PERES 
+//LORENZO DE OLIVEIRA E SILVA 
+//GABRIEL EVANGELISTA BERTOLINO DOS SANTOS
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template

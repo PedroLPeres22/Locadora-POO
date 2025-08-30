@@ -1,3 +1,9 @@
+//Autores
+//PEDRO LEONARDO S. DA S. DE O. PERES 
+//LORENZO DE OLIVEIRA E SILVA 
+//GABRIEL EVANGELISTA BERTOLINO DOS SANTOS
+
+
 package dados;
 
 //Classe que define as propriedades específicas de produtos de vídeo (Filmes, 
