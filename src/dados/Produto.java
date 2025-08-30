@@ -76,6 +76,14 @@ public class Produto {
     public void setEstoque(long estoque){
         this.estoque = estoque;
     }
+
+    public void setPreco(long preco) {
+        this.preco = preco;
+    }
+
+    public void setClassInd(String classInd) {
+        this.classInd = classInd;
+    }
     
     public void updateAlugueis(){
         alugueis++;

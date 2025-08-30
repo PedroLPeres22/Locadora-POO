@@ -33,6 +33,7 @@ public class VendaTela extends javax.swing.JFrame {
      * Creates new form VendaTela
      */
     Venda venda;
+    Runnable callback;
     public VendaTela() {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -42,6 +43,38 @@ public class VendaTela extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.venda = v;
+        devolucao.setText(v.getFoiDevolvido() ? "Sim" : "Não");
+        idVenda.setText(v.getCodigo());
+        codigoProduto.setText(v.getIdProduto());
+        telefoneCliente.setText(v.getIdCliente());
+        dataLocacao.setText(v.getDataLocar());
+        dataDevolicao.setText(v.getDataDevol());
+        valor.setText(Double.toString(v.getValorTotal()));
+
+        //pega Cliente do banco de dados e exibe o nome e endereço
+        Cliente c = encontrarCliente(v.getIdCliente());
+        if (c != null) {
+            nomeCliente.setText(c.getNome());
+            enderecoCliente.setText(c.getEndereco());
+        } else {
+            nomeCliente.setText("Cliente não encontrado");
+            enderecoCliente.setText("Cliente não encontrado");
+        }
+        //pega produto do banco de dados e exibe o nome
+        Produto p = encontrarProduto(v.getIdProduto(), v.getColecao());
+        if (p != null) {
+            nomeProduto.setText(p.getNome());
+        } else {
+            nomeProduto.setText("Produto não encontrado");
+        }
+
+    }
+    //Construtor que atializa tabela
+    public VendaTela(Venda v, Runnable callback) {
+        initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        this.venda = v;
+        this.callback = callback;
         devolucao.setText(v.getFoiDevolvido() ? "Sim" : "Não");
         idVenda.setText(v.getCodigo());
         codigoProduto.setText(v.getIdProduto());
@@ -224,6 +257,11 @@ public class VendaTela extends javax.swing.JFrame {
             return; // Sai se o usuário não confirmar
         }
         deletarVenda(venda.getCodigo());
+        
+        if (callback != null) {
+            callback.run();
+        }
+        this.dispose();
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolucaoActionPerformed

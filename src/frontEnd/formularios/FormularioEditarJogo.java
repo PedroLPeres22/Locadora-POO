@@ -1,32 +1,44 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd.formularios;
 
-import java.awt.event.ActionEvent;
-import java.util.Enumeration;
-
-import javax.swing.AbstractButton;
-import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
-import javax.swing.JOptionPane;
-
-import static ferramentas.VerificarDados.estaVazio;
-
 import dados.Game;
+import static ferramentas.CrudProduto.editarProduto;
+
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author gbert
  */
-public class FormularioJogo extends javax.swing.JPanel {
+public class FormularioEditarJogo extends javax.swing.JFrame {
+
+    private static final java.util.logging.Logger logger = java.util.logging.Logger
+            .getLogger(FormularioEditarJogo.class.getName());
 
     /**
-     * Creates new form FomularioJogo
+     * Creates new form FormularioEditarJogo
      */
-    public FormularioJogo() {
+    Game game;
+    private Runnable callback;
+
+    public FormularioEditarJogo() {
         initComponents();
+    }
+
+    public FormularioEditarJogo(Game game, Runnable callback) {
+        initComponents();
+        this.game = game;
+        this.callback = callback;
+        tfNome.setText(game.getNome());
+        tfDesenvolvedora.setText(game.getDesenvolvedor());
+        tfPublicadora.setText(game.getPublicadora());
+        tfPreco.setText(String.valueOf(game.getPreco()));
+        tfEstoque.setText(String.valueOf(game.getEstoque()));
+        tfPlataforma.setSelectedItem(game.getPlataforma());
+        tfClassificacao.setSelectedItem(game.getClassInd());
     }
 
     /**
@@ -36,7 +48,7 @@ public class FormularioJogo extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
@@ -57,9 +69,7 @@ public class FormularioJogo extends javax.swing.JPanel {
         tfPlataforma = new javax.swing.JComboBox<>();
         tfClassificacao = new javax.swing.JComboBox<>();
 
-        setMaximumSize(new java.awt.Dimension(500, 32767));
-        setMinimumSize(new java.awt.Dimension(500, 600));
-        setPreferredSize(new java.awt.Dimension(500, 600));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fomularioContainer.setBackground(new java.awt.Color(204, 204, 204));
         fomularioContainer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -100,11 +110,7 @@ public class FormularioJogo extends javax.swing.JPanel {
         tfDesenvolvedora.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfDesenvolvedora.setToolTipText("Digite a desenvolvedora do jogo");
         tfDesenvolvedora.setPreferredSize(new java.awt.Dimension(400, 27));
-        tfDesenvolvedora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDesenvolvedoraActionPerformed(evt);
-            }
-        });
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -208,11 +214,7 @@ public class FormularioJogo extends javax.swing.JPanel {
         tfEstoque.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tfEstoque.setToolTipText("Digite a quantidade do item no estoque");
         tfEstoque.setPreferredSize(new java.awt.Dimension(400, 27));
-        tfEstoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEstoqueActionPerformed(evt);
-            }
-        });
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
@@ -235,7 +237,8 @@ public class FormularioJogo extends javax.swing.JPanel {
         fomularioContainer.add(tfPlataforma, gridBagConstraints);
 
         tfClassificacao.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        tfClassificacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Livre", "10", "12", "14", "16", "18" }));
+        tfClassificacao.setModel(
+                new javax.swing.DefaultComboBoxModel<>(new String[] { "Livre", "10", "12", "14", "16", "18" }));
         tfClassificacao.setPreferredSize(new java.awt.Dimension(400, 27));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -246,99 +249,72 @@ public class FormularioJogo extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(12, 11, 0, 11);
         fomularioContainer.add(tfClassificacao, gridBagConstraints);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 514,
+                                        Short.MAX_VALUE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(fomularioContainer, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap()));
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    protected void tfDesenvolvedoraActionPerformed(ActionEvent evt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tfDesenvolvedoraActionPerformed'");
-    }
-
-    protected void tfEstoqueActionPerformed(ActionEvent evt) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'tfEstoqueActionPerformed'");
-    }
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
         // Pega os dados dos campos
-        String nome = tfNome.getText();
-        String desenvolvedora = tfDesenvolvedora.getText();
-        String plataforma = tfPlataforma.getSelectedItem().toString();
-        String publicadora = tfPublicadora.getText();
-        int preco = Integer.parseInt(tfPreco.getText());
-        String classificacao = tfClassificacao.getSelectedItem().toString();
-        int estoque = Integer.parseInt(tfEstoque.getText());
-
-        // Verifica se os campos estão vazios
-        if (estaVazio(nome) == false || estaVazio(desenvolvedora) == false || estaVazio(plataforma) == false
-                || estaVazio(publicadora) == false || estaVazio(tfPreco.getText()) == false
-                || estaVazio(tfEstoque.getText()) == false || estaVazio(classificacao) == false) {
-            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, preencha todos os campos.");
-            return;
+        this.game.setNome(tfNome.getText());
+        this.game.setDesenvolvedor(tfDesenvolvedora.getText());
+        this.game.setPublicadora(tfPublicadora.getText());
+        this.game.setPreco(Integer.parseInt(tfPreco.getText()));
+        this.game.setEstoque(Integer.parseInt(tfEstoque.getText()));
+        this.game.setPlataforma((String) tfPlataforma.getSelectedItem());
+        this.game.setClassInd((String) tfClassificacao.getSelectedItem());
+        // Salva o usuario
+        editarProduto(this.game.getCodigo(), "jogos", this.game);
+        JOptionPane.showMessageDialog(fomularioContainer, "jogo " + this.game.getNome() + " editado atualize os dados");
+        if (callback != null) {
+            callback.run(); // avisa a tela para atualizar
         }
 
-        // Verifica se o preço é um número válido
-        if (preco < 0) {
-            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um preço válido.");
-            return;
-        }
-
-        //verifica se o estoque é um número válido
-        if (estoque < 0) {
-            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um estoque válido.");
-            return;
-        }
-        
-        // Cria o objeto Jogo
-        Game jogo = new Game(
-                nome,
-                ferramentas.GeradorID.gerarID(), // código id automatico
-                classificacao,
-                publicadora,
-                desenvolvedora,
-                plataforma,
-                false, // está alugado
-                0, // alugueis
-                estoque, // estoque (pode ser inicializado com 1 cópia)
-                preco);
-
-        // Salva o jogo no banco de dados
-        ferramentas.CrudProduto.criarProduto(jogo, "jogos");
-
-        // Limpa os campos do formulário
-        tfNome.setText("");
-        tfDesenvolvedora.setText("");
-        tfPublicadora.setText("");
-        tfPreco.setText("");
-        tfEstoque.setText("");
-        tfPlataforma.setSelectedIndex(0);
-        tfClassificacao.setSelectedIndex(0);
+        this.dispose(); // fecha a tela de edição
     }// GEN-LAST:event_botaoEnviarActionPerformed
 
-    private String getClassificacaoSelecionada(ButtonGroup g) {
-        for (Enumeration<AbstractButton> buttons = g.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-
-            if (button.isSelected()) {
-                return button.getText();
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        return null;
+        // </editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new FormularioEditarJogo().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

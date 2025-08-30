@@ -6,13 +6,18 @@ package frontEnd.tabelas;
 
 import dados.Cliente;
 import dados.Game;
+import dados.Produto;
 import dados.Venda;
+import dados.Video;
 import frontEnd.telas.ClienteTela;
 import frontEnd.telas.JogoTela;
 import frontEnd.telas.VendaTela;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import static ferramentas.CrudVendas.listarVendas;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +69,11 @@ public class TabelaVendas extends javax.swing.JPanel {
         }
     }
 
+    public void atualizarTabela() {
+        List<Venda> listaAtualizada = listarVendas();
+
+        carregarVendas(listaAtualizada);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,7 +143,7 @@ public class TabelaVendas extends javax.swing.JPanel {
 
             final Venda v = vendas.get(modelRow);
             SwingUtilities.invokeLater(() -> {
-                VendaTela tela = new VendaTela(v);
+                VendaTela tela = new VendaTela(v, this::atualizarTabela);
                 tela.setLocationRelativeTo(null);
                 tela.setVisible(true);
             });
