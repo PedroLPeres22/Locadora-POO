@@ -11,7 +11,9 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
+import static ferramentas.VerificarDados.eNumero;
 import static ferramentas.VerificarDados.estaVazio;
+import static ferramentas.VerificarDados.verifTel;
 
 import dados.Video;
 
@@ -362,6 +364,14 @@ public class FormularioVideo extends javax.swing.JPanel {
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
+
+        // Verifica se são números válidos
+        if (!eNumero(tfDuracao.getText()) || !eNumero(tfPreco.getText()) || !eNumero(tfEstoque.getText())) {
+            JOptionPane.showMessageDialog(this, "Duração, preço e estoque devem ser números inteiros válidos.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         // Cria o objeto Video
         Video video = new Video(
                 nome,

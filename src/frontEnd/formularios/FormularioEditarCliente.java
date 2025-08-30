@@ -6,6 +6,7 @@ package frontEnd.formularios;
 
 import dados.Cliente;
 import static ferramentas.CrudCliente.editarCliente;
+import static ferramentas.VerificarDados.estaVazio;
 
 import javax.swing.JOptionPane;
 
@@ -141,9 +142,18 @@ public class FormularioEditarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+        String nome = tfNome.getText();
+        String endereco = tfEndereco.getText();
         // Pega os dados dos campos
-        this.cliente.setNome(tfNome.getText());
-        this.cliente.setEndereco(tfEndereco.getText());
+        this.cliente.setNome(nome);
+        this.cliente.setEndereco(endereco);
+
+        //Verifica se campo esta vazio
+        if (estaVazio(nome) == false || estaVazio(endereco) == false) {
+            JOptionPane.showMessageDialog(formularioContainer, "Preencha todos os campos");
+            return;
+            
+        }
         editarCliente(this.cliente, this.cliente.getTelefone());
 
         JOptionPane.showMessageDialog(formularioContainer, "usuario " + this.cliente.getNome() + " editado");

@@ -12,6 +12,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
+import static ferramentas.VerificarDados.eNumero;
 import static ferramentas.VerificarDados.estaVazio;
 
 import dados.Game;
@@ -292,15 +293,10 @@ public class FormularioJogo extends javax.swing.JPanel {
             return;
         }
 
-        // Verifica se o preço é um número válido
-        if (preco < 0) {
-            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um preço válido.");
-            return;
-        }
-
-        //verifica se o estoque é um número válido
-        if (estoque < 0) {
-            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, insira um estoque válido.");
+        // Verifica se são números válidos
+        if (!eNumero(tfPreco.getText()) || !eNumero(tfEstoque.getText())) {
+            JOptionPane.showMessageDialog(this, "Duração, preço e estoque devem ser números inteiros válidos.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
             return;
         }
         

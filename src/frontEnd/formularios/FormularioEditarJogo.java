@@ -6,6 +6,8 @@ package frontEnd.formularios;
 
 import dados.Game;
 import static ferramentas.CrudProduto.editarProduto;
+import static ferramentas.VerificarDados.estaVazio;
+import static ferramentas.VerificarDados.eNumero;
 
 import javax.swing.JOptionPane;
 
@@ -26,10 +28,12 @@ public class FormularioEditarJogo extends javax.swing.JFrame {
 
     public FormularioEditarJogo() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }
 
     public FormularioEditarJogo(Game game, Runnable callback) {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.game = game;
         this.callback = callback;
         tfNome.setText(game.getNome());
@@ -271,13 +275,38 @@ public class FormularioEditarJogo extends javax.swing.JFrame {
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
         // Pega os dados dos campos
-        this.game.setNome(tfNome.getText());
-        this.game.setDesenvolvedor(tfDesenvolvedora.getText());
-        this.game.setPublicadora(tfPublicadora.getText());
-        this.game.setPreco(Integer.parseInt(tfPreco.getText()));
-        this.game.setEstoque(Integer.parseInt(tfEstoque.getText()));
-        this.game.setPlataforma((String) tfPlataforma.getSelectedItem());
-        this.game.setClassInd((String) tfClassificacao.getSelectedItem());
+        String nome = tfNome.getText();
+        String desenvolvedora = tfDesenvolvedora.getText();
+        String plataforma = tfPlataforma.getSelectedItem().toString();
+        String publicadora = tfPublicadora.getText();
+        String classificacao = tfClassificacao.getSelectedItem().toString();
+
+        // Verifica se os campos estão vazios
+        if (estaVazio(nome) == false || estaVazio(desenvolvedora) == false || estaVazio(plataforma) == false
+                || estaVazio(publicadora) == false || estaVazio(tfPreco.getText()) == false
+                || estaVazio(tfEstoque.getText()) == false || estaVazio(classificacao) == false) {
+            JOptionPane.showMessageDialog(fomularioContainer, "Por favor, preencha todos os campos.");
+            return;
+        }
+
+        // Verifica se são números válidos
+        if (!eNumero(tfPreco.getText()) || !eNumero(tfEstoque.getText())) {
+            JOptionPane.showMessageDialog(this, "Duração, preço e estoque devem ser números inteiros válidos.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        // Pega os dados dos campos
+        int preco = Integer.parseInt(tfPreco.getText());
+        int estoque = Integer.parseInt(tfEstoque.getText());
+
+        this.game.setNome(nome);
+        this.game.setDesenvolvedor(desenvolvedora);
+        this.game.setPublicadora(publicadora);
+        this.game.setPreco(preco);
+        this.game.setEstoque(estoque);
+        this.game.setPlataforma(plataforma);
+        this.game.setClassInd(classificacao);
         // Salva o usuario
         editarProduto(this.game.getCodigo(), "jogos", this.game);
         JOptionPane.showMessageDialog(fomularioContainer, "jogo " + this.game.getNome() + " editado");

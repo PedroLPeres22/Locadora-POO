@@ -57,7 +57,6 @@ public class TabelaVendas extends javax.swing.JPanel {
         model.setRowCount(0); // limpa tabela
 
         for (Venda v : vendas) {
-            System.out.println("Venda codigo=" + v.getCodigo() + " telefone=" + v.getIdCliente());
             model.addRow(new Object[] {
                     v.getCodigo(),
                     v.getIdCliente(), // mostra o telefone do cliente

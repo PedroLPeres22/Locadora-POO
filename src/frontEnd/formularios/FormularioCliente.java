@@ -169,7 +169,7 @@ public class FormularioCliente extends javax.swing.JPanel {
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
         String endereco = tfEndereco.getText();
-
+        //Verifica se campo esta vazio
         if (estaVazio(nome) == false || estaVazio(telefone) == false || estaVazio(endereco) == false) {
             JOptionPane.showMessageDialog(formularioContainer, "Preencha todos os campos");
             return;

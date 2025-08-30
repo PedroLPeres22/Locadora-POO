@@ -6,6 +6,8 @@ package frontEnd.formularios;
 
 import dados.Video;
 import static ferramentas.CrudProduto.editarProduto;
+import static ferramentas.VerificarDados.estaVazio;
+import static ferramentas.VerificarDados.eNumero;
 
 import javax.swing.JOptionPane;
 
@@ -30,6 +32,7 @@ public class FormularioEditarVideo extends javax.swing.JFrame {
 
     public FormularioEditarVideo(Video video, Runnable callback) {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         this.video = video;
         this.callback = callback;
         tfNome.setText(video.getNome());
@@ -325,16 +328,45 @@ public class FormularioEditarVideo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoEnviarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botaoEnviarActionPerformed
-        this.video.setNome(tfNome.getText());
-        this.video.setEstudio(tfEstudio.getText());
-        this.video.setDistribuidora(tfDistribuidora.getText());
-        this.video.setTipoMidia(tfTipoMidia.getSelectedItem().toString());
-        this.video.setClassInd(tfClassificacao.getSelectedItem().toString());
-        this.video.setFormato(tfFormato.getSelectedItem().toString());
-        this.video.setDuracao(parseInt(tfDuracao.getText()));
-        this.video.setEstoque(parseInt(tfEstoque.getText()));
-        this.video.setPreco(parseInt(tfPreco.getText()));
+        // Pega os dados dos campos
+        String nome = tfNome.getText();
+        String estudio = tfEstudio.getText();
+        String distribuidora = tfDistribuidora.getText();
+        String formato = tfFormato.getSelectedItem().toString();
+        String tipoMidia = tfTipoMidia.getSelectedItem().toString();
+        String classificaco = tfClassificacao.getSelectedItem().toString();
+        
+        // verifica se os campos obrigatórios estão preenchidos
+        if (estaVazio(nome) == false || estaVazio(estudio) == false || estaVazio(distribuidora) == false
+                || estaVazio(tfDuracao.getText()) == false || estaVazio(tfPreco.getText()) == false
+                || estaVazio(tfEstoque.getText()) == false) {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos obrigatórios.", "Erro",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
+        // Verifica se são números válidos
+        if (!eNumero(tfDuracao.getText()) || !eNumero(tfPreco.getText()) || !eNumero(tfEstoque.getText())) {
+            JOptionPane.showMessageDialog(this, "Duração, preço e estoque devem ser números inteiros válidos.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int estoque = Integer.parseInt(tfEstoque.getText());
+        int duracao = Integer.parseInt(tfDuracao.getText());
+        int preco = Integer.parseInt(tfPreco.getText());
+
+        this.video.setNome(nome);
+        this.video.setEstudio(estudio);
+        this.video.setDistribuidora(distribuidora);
+        this.video.setTipoMidia(tipoMidia);
+        this.video.setClassInd(classificaco);
+        this.video.setFormato(formato);
+        this.video.setDuracao(duracao);
+        this.video.setEstoque(estoque);
+        this.video.setPreco(preco);
+
+        //edita banco de dados
         editarProduto(this.video.getCodigo(), "videos", this.video);
         JOptionPane.showMessageDialog(formularioContainer,
                 "Video " + this.video.getNome() + " editado");
@@ -345,13 +377,6 @@ public class FormularioEditarVideo extends javax.swing.JFrame {
         this.dispose(); // fecha a tela de edição
 
     }// GEN-LAST:event_botaoEnviarActionPerformed
-
-    private int parseInt(String text) {
-        if (text == null || text.isEmpty()) {
-            return 0; // or any default value you prefer
-        }
-        return Integer.parseInt(text);
-    }
 
     /**
      * @param args the command line arguments
