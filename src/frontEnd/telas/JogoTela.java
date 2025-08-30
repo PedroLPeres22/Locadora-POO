@@ -81,6 +81,8 @@ public class JogoTela extends javax.swing.JFrame {
             estoque.setText(String.valueOf(game.getEstoque()));
             alugado.setText(game.estaAlugado() ? "Sim" : "Não");
             preco.setText("R$ " + game.getPreco());
+            // botão "Alugar" só fica habilitado se não estiver alugado
+            botaoAlugar.setEnabled(!game.estaAlugado() && game.getEstoque() > 0);
         }
 
         if (callback != null) {

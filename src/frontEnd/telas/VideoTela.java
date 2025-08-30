@@ -78,6 +78,8 @@ public class VideoTela extends javax.swing.JFrame {
             estoque.setText(String.valueOf(video.getEstoque()));
             alugado.setText(video.estaAlugado() ? "Sim" : "Não");
             preco.setText("R$ " + video.getPreco());
+            // botão "Alugar" só fica habilitado se não estiver alugado
+            botaoAlugar.setEnabled(!video.estaAlugado() && video.getEstoque() > 0);
         }
 
         if (callback != null) {
